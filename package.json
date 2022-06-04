@@ -6,7 +6,9 @@
     "solid-js": "^1.4.3",
     "solid-scripts": "0.0.61"
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.3.1"
+  },
   "scripts": {
     "start": "solid-scripts start",
     "build": "solid-scripts build",
