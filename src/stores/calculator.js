@@ -9,10 +9,10 @@ const [calculator, setCalculator] = createStore({
   isReadingValue: false,
   get displayContent() {
     if (this.isReadingValue) {
-      return this.currentValue || "0";
+      return this.currentValue;
     }
 
-    return this.result || "0";
+    return this.result;
   },
 });
 
@@ -60,17 +60,15 @@ export function handleKeyboardInput(input) {
 }
 
 function handleNumber(input, { currentValue }) {
-  if (!currentValue.length && String(input) === "0") {
+  if (currentValue === "0" && String(input) === "0") {
     return {
       isReadingValue: true,
     };
   }
 
-  const newValue = currentValue + String(input);
-
   return {
     isReadingValue: true,
-    currentValue: newValue,
+    currentValue: currentValue + String(input),
   };
 }
 
