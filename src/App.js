@@ -1,13 +1,17 @@
 import Header from "./components/Header";
-import Result from "./components/Result";
+import Display from "./components/Display";
 import Keyboard from "./components/Keyboard";
+
+import "./App.css";
 
 function App() {
   return (
     <div class="App">
-      {/* <Header /> */}
-      <Result />
-      <Keyboard />
+      <main className="App-container">
+        <Header />
+        <Display />
+        <Keyboard />
+      </main>
     </div>
   );
 }

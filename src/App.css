@@ -1,0 +1,13 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #446;
+}
+
+.App-container {
+  margin: 1rem;
+  width: 540px;
+  min-width: 320px;
+}
