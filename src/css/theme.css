@@ -1,0 +1,15 @@
+html {
+  font-family: "League Spartan";
+}
+
+html[data-theme-1] {
+  --background: tomato;
+}
+
+html[data-theme-2] {
+  --background: navy;
+}
+
+html[data-theme-3] {
+  --background: goldenrod;
+}
