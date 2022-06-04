@@ -1,15 +1,13 @@
 import { For } from "solid-js";
-// import calculator, { handleKeyboardInput } from "../../stores/calculator";
-import { handleKeyboardInput } from "../../stores/calculator";
 
+import Button from "../Button";
+import { handleKeyboardInput } from "../../stores/calculator";
 import "./index.css";
 
 function Buttons({ buttons, handler }) {
   return (
     <For each={buttons}>
-      {(character) => (
-        <button onClick={[handler, character]}>{character}</button>
-      )}
+      {(button) => <Button handler={handler} {...button} />}
     </For>
   );
 }
@@ -19,29 +17,28 @@ function Keyboard() {
     handleKeyboardInput(data);
   }
 
-  // const isDeleteButtonDisabled = () => {
-  //   return calculator.currentValue.length === 0 || !calculator.isReadingValue;
-  // };
-
   const topButtons = [
-    "7",
-    "8",
-    "9",
-    "del",
-    "4",
-    "5",
-    "6",
-    "+",
-    "1",
-    "2",
-    "3",
-    "-",
-    ".",
-    "0",
-    "/",
-    "x",
+    { value: "7" },
+    { value: "8" },
+    { value: "9" },
+    { value: "del", color: "navy" },
+    { value: "4" },
+    { value: "5" },
+    { value: "6" },
+    { value: "+" },
+    { value: "1" },
+    { value: "2" },
+    { value: "3" },
+    { value: "-" },
+    { value: "." },
+    { value: "0" },
+    { value: "/" },
+    { value: "x" },
   ];
-  const bottomButtons = ["reset", "="];
+  const bottomButtons = [
+    { value: "reset", color: "navy" },
+    { value: "=", color: "tomato" },
+  ];
 
   return (
     <div class="Keyboard">

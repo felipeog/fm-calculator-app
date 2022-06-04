@@ -4,11 +4,11 @@ import "./index.css";
 
 function Header() {
   return (
-    <div class="Header">
-      <h1>Header</h1>
+    <header class="Header">
+      <h1 class="Header__title">calc</h1>
 
       <ThemeSelector />
-    </div>
+    </header>
   );
 }
 

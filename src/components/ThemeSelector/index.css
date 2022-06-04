@@ -1,3 +1,55 @@
 .ThemeSelector {
-  color: lightsalmon;
+  display: flex;
+}
+
+.ThemeSelector__label {
+  align-self: flex-end;
+  margin: 0 2rem 0.2rem 0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+.ThemeSelector__toggle {
+  width: 5rem;
+}
+
+.ThemeSelector__toggle-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.2rem;
+}
+
+.ThemeSelector__toggle-label {
+  width: 1rem;
+  text-align: center;
+}
+
+.ThemeSelector__toggle-body {
+  background-color: #224;
+  height: 1.4rem;
+  margin-top: 0.2rem;
+  padding: 0.2rem;
+  border-radius: 1.4rem;
+}
+
+.ThemeSelector__toggle-body::after {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-color: #a55;
+  border-radius: 50%;
+}
+
+.ThemeSelector__toggle-body.theme-1::after {
+  transform: translateX(calc(5.4rem / 3 * 0));
+}
+
+.ThemeSelector__toggle-body.theme-2::after {
+  transform: translateX(calc(5.4rem / 3 * 1));
+}
+
+.ThemeSelector__toggle-body.theme-3::after {
+  transform: translateX(calc(5.4rem / 3 * 2));
 }

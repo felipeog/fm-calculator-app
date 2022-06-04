@@ -1,3 +1,9 @@
 .Header {
-  color: tomato;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Header__title {
+  font-size: 1.6rem;
 }
