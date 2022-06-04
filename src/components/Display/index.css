@@ -5,7 +5,7 @@
   height: 6rem;
   margin-top: 2rem;
   padding: 1rem;
-  background-color: #224;
+  background-color: var(--primary_100);
   border-radius: 0.6rem;
 }
 

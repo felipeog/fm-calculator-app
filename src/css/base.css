@@ -8,6 +8,7 @@ html,
 body {
   font-family: "League Spartan", sans-serif;
   font-size: 16px;
+  color: var(--text_color);
 }
 
 .App {
@@ -15,7 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #446;
+  background-color: var(--primary_300);
 }
 
 .App-container {
