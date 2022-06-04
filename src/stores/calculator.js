@@ -59,10 +59,8 @@ export function handleKeyboardInput(input) {
   }
 }
 
-function handleNumber(input, prevCalculator) {
-  const { currentValue } = prevCalculator;
-
-  if (!currentValue.length && input === "0") {
+function handleNumber(input, { currentValue }) {
+  if (!currentValue.length && String(input) === "0") {
     return {
       isReadingValue: true,
     };
@@ -78,17 +76,17 @@ function handleNumber(input, prevCalculator) {
 
 // TODO:
 function handleDelete({ currentValue }) {
-  return {
-    currentValue: currentValue.slice(0, -1),
-    displayContent: currentValue.slice(0, -1),
-  };
+  // return {
+  //   currentValue: currentValue.slice(0, -1),
+  //   displayContent: currentValue.slice(0, -1),
+  // };
 }
 
 // TODO:
 function handleDecimal(input, { currentValue }) {
-  return {
-    currentValue: currentValue + input,
-  };
+  // return {
+  //   currentValue: currentValue + input,
+  // };
 }
 
 function handleReset() {
@@ -102,14 +100,10 @@ function handleReset() {
   };
 }
 
-function handleOperation(input, prevCalculator) {
-  const {
-    currentValue,
-    previousValue,
-    currentOperation,
-    previousOperation,
-    result,
-  } = prevCalculator;
+function handleOperation(
+  input,
+  { currentValue, currentOperation, previousOperation, result }
+) {
   const operation = currentOperation || input;
   const isLastOperationEquals = previousOperation === "=";
 
@@ -121,16 +115,17 @@ function handleOperation(input, prevCalculator) {
     };
   }
 
-  if (previousValue.length || currentValue.length) {
-    const value = currentValue.length ? currentValue : previousValue;
-    const evalExpression = (result || "0") + operation + value;
+  if (currentValue.length) {
+    const evalExpression = result.length
+      ? result + operation + currentValue
+      : currentValue;
 
-    console.log("🚀 ~ value", value);
+    console.log("🚀 ~ currentValue", currentValue);
     console.log("🚀 ~ evalExpression", evalExpression);
 
     return {
       isReadingValue: false,
-      previousValue: value,
+      previousValue: currentValue,
       currentValue: "",
       previousOperation: currentOperation,
       currentOperation: input,
@@ -145,20 +140,12 @@ function handleOperation(input, prevCalculator) {
   };
 }
 
-function handleEquals(prevCalculator) {
-  const {
-    currentValue,
-    previousValue,
-    currentOperation,
-    // previousOperation,
-    result,
-  } = prevCalculator;
-  // const isLastOperationEquals = previousOperation === "=";
-
-  // if (isLastOperationEquals) {
-  //   return;
-  // }
-
+function handleEquals({
+  currentValue,
+  previousValue,
+  currentOperation,
+  result,
+}) {
   if (!previousValue.length && !currentValue.length) {
     return;
   }
