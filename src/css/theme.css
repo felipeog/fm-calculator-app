@@ -1,16 +1,47 @@
-html {
-  font-family: "League Spartan";
-  color: #fff;
+html[data-theme="theme_1"] {
+  --primary_100: hsl(224, 36%, 15%);
+  --primary_200: hsl(223, 31%, 20%);
+  --primary_300: hsl(222, 26%, 31%);
+  --primary_400: hsl(221, 14%, 31%);
+  --primary_500: hsl(224, 28%, 35%);
+  --primary_600: hsl(225, 21%, 49%);
+
+  --secondary_100: hsl(6, 70%, 34%);
+  --secondary_200: hsl(6, 63%, 50%);
+  --secondary_300: hsl(28, 16%, 65%);
+  --secondary_400: hsl(30, 25%, 89%);
+
+  --text_color: #fff;
 }
 
-html[data-theme-1] {
-  --background: tomato;
+html[data-theme="theme_2"] {
+  --primary_100: hsl(185, 58%, 25%);
+  --primary_200: hsl(185, 42%, 37%);
+  --primary_300: hsl(0, 5%, 81%);
+  --primary_400: hsl(45, 7%, 89%);
+  --primary_500: hsl(0, 0%, 90%);
+  --primary_600: hsl(0, 0%, 93%);
+
+  --secondary_100: hsl(60, 10%, 19%);
+  --secondary_200: hsl(25, 99%, 27%);
+  --secondary_300: hsl(25, 98%, 40%);
+  --secondary_400: hsl(35, 11%, 61%);
+
+  --text_color: #000;
 }
 
-html[data-theme-2] {
-  --background: navy;
-}
+html[data-theme="theme_3"] {
+  --primary_100: hsl(268, 75%, 9%);
+  --primary_200: hsl(268, 71%, 12%);
+  --primary_300: hsl(268, 47%, 21%);
+  --primary_400: hsl(281, 89%, 26%);
+  --primary_500: hsl(290, 70%, 36%);
+  --primary_600: hsl(285, 91%, 52%);
 
-html[data-theme-3] {
-  --background: goldenrod;
+  --secondary_100: hsl(198, 20%, 13%);
+  --secondary_200: hsl(176, 100%, 44%);
+  --secondary_300: hsl(52, 100%, 62%);
+  --secondary_400: hsl(177, 92%, 70%);
+
+  --text_color: #fff;
 }

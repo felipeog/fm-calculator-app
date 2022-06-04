@@ -3,3 +3,23 @@
 *::after {
   box-sizing: border-box;
 }
+
+html,
+body {
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #446;
+}
+
+.App-container {
+  margin: 1rem;
+  width: 540px;
+  min-width: 320px;
+}

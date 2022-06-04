@@ -1,22 +1,42 @@
-import classNames from "classnames";
+import themes from "../../consts/themes";
+import { getCurrentThemeIndex, setThemeByIndex } from "../../stores/theme";
 
 import "./index.css";
 
 function ThemeSelector() {
-  const activeTheme = "theme-1";
+  function handleRangeChange(event) {
+    setThemeByIndex(event.target.value);
+  }
 
   return (
     <div class="ThemeSelector">
-      <span class="ThemeSelector__label">theme</span>
+      <label class="ThemeSelector__label" for="theme">
+        theme
+      </label>
 
       <div class="ThemeSelector__toggle">
         <div class="ThemeSelector__toggle-labels">
-          <span class="ThemeSelector__toggle-label">1</span>
-          <span class="ThemeSelector__toggle-label">2</span>
-          <span class="ThemeSelector__toggle-label">3</span>
+          <label class="ThemeSelector__toggle-label" for="theme">
+            1
+          </label>
+          <label class="ThemeSelector__toggle-label" for="theme">
+            2
+          </label>
+          <label class="ThemeSelector__toggle-label" for="theme">
+            3
+          </label>
         </div>
 
-        <div class={classNames("ThemeSelector__toggle-body", activeTheme)} />
+        <input
+          class="ThemeSelector__range"
+          type="range"
+          id="theme"
+          name="theme"
+          min="0"
+          max={themes.length - 1}
+          value={getCurrentThemeIndex()}
+          onChange={handleRangeChange}
+        />
       </div>
     </div>
   );

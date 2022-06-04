@@ -2,8 +2,6 @@ import Header from "./components/Header";
 import Display from "./components/Display";
 import Keyboard from "./components/Keyboard";
 
-import "./App.css";
-
 function App() {
   return (
     <div class="App">
