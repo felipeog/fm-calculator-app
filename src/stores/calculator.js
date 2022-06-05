@@ -1,4 +1,5 @@
 import { createStore } from "solid-js/store";
+import big from "big.js";
 
 const [calculator, setCalculator] = createStore({
   previousOperation: "",
@@ -23,7 +24,7 @@ export function handleKeyboardInput(input) {
         return handleDelete(prevCalculator);
 
       case ".":
-        return handleDecimal(input, prevCalculator);
+        return handleDecimal(prevCalculator);
 
       case "reset":
         return handleReset();
@@ -64,22 +65,36 @@ function handleNumber(input, { currentValue }) {
 
   return {
     isReadingValue: true,
-    currentValue: currentValue + input,
+    currentValue: `${currentValue}${input}`,
   };
 }
 
 function handleDelete({ currentValue }) {
-  return {
-    currentValue:
-      currentValue.length > 0 ? currentValue.slice(0, -1) : currentValue,
-  };
+  if (calculator.isReadingValue) {
+    return {
+      currentValue:
+        currentValue.length > 0 ? currentValue.slice(0, -1) : currentValue,
+    };
+  }
 }
 
-function handleDecimal(input, { currentValue }) {
+function handleDecimal({ currentValue }) {
+  if (!currentValue.length) {
+    return {
+      isReadingValue: true,
+      currentValue: "0.",
+    };
+  }
+
+  if (currentValue.includes(".")) {
+    return {
+      isReadingValue: true,
+    };
+  }
+
   return {
-    currentValue: currentValue.includes(".")
-      ? currentValue
-      : currentValue + input,
+    isReadingValue: true,
+    currentValue: `${currentValue}.`,
   };
 }
 
@@ -110,17 +125,19 @@ function handleOperation(
   }
 
   if (currentValue.length) {
-    const evalExpression = result.length
-      ? result + operation + currentValue
-      : currentValue;
-
     return {
       isReadingValue: false,
       previousValue: currentValue,
       currentValue: "",
       previousOperation: currentOperation,
       currentOperation: input,
-      result: String(eval(evalExpression)),
+      result: result.length
+        ? applyOperation({
+            left: Number(result),
+            operation: operation,
+            right: Number(currentValue),
+          })
+        : currentValue,
     };
   }
 
@@ -143,15 +160,38 @@ function handleEquals({
 
   if (currentOperation.length) {
     const value = currentValue.length ? currentValue : previousValue;
-    const evalExpression = (result || "0") + currentOperation + value;
 
     return {
       isReadingValue: false,
       previousValue: value,
       currentValue: "",
       previousOperation: "=",
-      result: String(eval(evalExpression)),
+      result: applyOperation({
+        left: Number(result || "0"),
+        operation: currentOperation,
+        right: Number(value),
+      }),
     };
+  }
+}
+
+function applyOperation({ left, operation, right }) {
+  try {
+    switch (operation) {
+      case "-":
+        return big(left).minus(big(right)).toString();
+
+      case "*":
+        return big(left).times(big(right)).toString();
+
+      case "/":
+        return big(left).div(big(right)).toString();
+
+      case "+":
+        return big(left).plus(big(right)).toString();
+    }
+  } catch (error) {
+    return error?.message ?? "Error";
   }
 }
 

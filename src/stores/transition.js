@@ -3,7 +3,7 @@ import { createStore } from "solid-js/store";
 
 import calculator from "../stores/calculator";
 
-const transitionButtons = ["-", "*", "/", "+", "=", "del", "reset"];
+const transitionButtons = ["-", "*", "/", "+", "="];
 
 const [transition, setTransition] = createStore({
   isTransitioning: false,
