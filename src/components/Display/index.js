@@ -27,11 +27,11 @@ function Display() {
   };
 
   return (
-    <div class="Display">
+    <section class="Display">
       <p class="Display__content">
         {transition.isTransitioning ? null : getDisplayContent()}
       </p>
-    </div>
+    </section>
   );
 }
 

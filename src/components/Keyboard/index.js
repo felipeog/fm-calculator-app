@@ -43,7 +43,7 @@ function Keyboard() {
   ];
 
   return (
-    <div class="Keyboard">
+    <section class="Keyboard">
       <div className="Keyboard__top">
         <Buttons buttons={topButtons} handler={handleButtonClick} />
       </div>
@@ -51,7 +51,7 @@ function Keyboard() {
       <div className="Keyboard__bottom">
         <Buttons buttons={bottomButtons} handler={handleButtonClick} />
       </div>
-    </div>
+    </section>
   );
 }
 
