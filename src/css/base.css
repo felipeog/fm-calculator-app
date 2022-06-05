@@ -16,11 +16,12 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-width: calc(375px + 2rem);
   background-color: var(--app_background);
 }
 
 .App-container {
   margin: 1rem;
   width: 540px;
-  min-width: 320px;
+  min-width: 375px;
 }
