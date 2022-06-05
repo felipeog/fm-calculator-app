@@ -1,5 +1,12 @@
 import { createStore } from "solid-js/store";
 import big from "big.js";
+import { DEV } from "solid-js";
+
+function logArguments(functionName, functionArguments) {
+  if (DEV) {
+    console.log(functionName, JSON.stringify(...functionArguments, null, 2));
+  }
+}
 
 const [calculator, setCalculator] = createStore({
   previousOperation: "",
@@ -18,6 +25,8 @@ const [calculator, setCalculator] = createStore({
 });
 
 export function handleKeyboardInput(input) {
+  logArguments("handleKeyboardInput", arguments);
+
   setCalculator((prevCalculator) => {
     switch (input) {
       case "del":
@@ -35,7 +44,7 @@ export function handleKeyboardInput(input) {
       case "+":
       case "-":
       case "/":
-      case "*":
+      case "x":
         return handleOperation(input, prevCalculator);
 
       case "0":
@@ -57,6 +66,8 @@ export function handleKeyboardInput(input) {
 }
 
 function handleNumber(input, { currentValue }) {
+  logArguments("handleNumber", arguments);
+
   if (currentValue === "0" && input === "0") {
     return {
       isReadingValue: true,
@@ -70,6 +81,8 @@ function handleNumber(input, { currentValue }) {
 }
 
 function handleDelete({ currentValue }) {
+  logArguments("handleDelete", arguments);
+
   if (calculator.isReadingValue) {
     return {
       currentValue:
@@ -79,6 +92,8 @@ function handleDelete({ currentValue }) {
 }
 
 function handleDecimal({ currentValue }) {
+  logArguments("handleDecimal", arguments);
+
   if (!currentValue.length) {
     return {
       isReadingValue: true,
@@ -99,6 +114,8 @@ function handleDecimal({ currentValue }) {
 }
 
 function handleReset() {
+  logArguments("handleReset", arguments);
+
   return {
     previousOperation: "",
     currentOperation: "",
@@ -111,8 +128,10 @@ function handleReset() {
 
 function handleOperation(
   input,
-  { currentValue, previousValue, currentOperation, previousOperation, result }
+  { currentValue, currentOperation, previousOperation, result }
 ) {
+  logArguments("handleOperation", arguments);
+
   const operation = currentOperation || input;
   const isLastOperationEquals = previousOperation === "=";
 
@@ -121,6 +140,9 @@ function handleOperation(
       isReadingValue: false,
       previousOperation: currentOperation,
       currentOperation: input,
+      previousValue: currentValue,
+      currentValue: "",
+      result: currentValue || result,
     };
   }
 
@@ -145,7 +167,6 @@ function handleOperation(
     isReadingValue: false,
     previousOperation: currentOperation,
     currentOperation: input,
-    result: previousValue,
   };
 }
 
@@ -155,12 +176,14 @@ function handleEquals({
   currentOperation,
   result,
 }) {
-  if (!previousValue.length && !currentValue.length) {
+  logArguments("handleEquals", arguments);
+
+  if (!result.length && !previousValue.length && !currentValue.length) {
     return;
   }
 
   if (currentOperation.length) {
-    const value = currentValue.length ? currentValue : previousValue;
+    const value = currentValue || previousValue || result;
 
     return {
       isReadingValue: false,
@@ -168,7 +191,7 @@ function handleEquals({
       currentValue: "",
       previousOperation: "=",
       result: applyOperation({
-        left: Number(result || "0"),
+        left: Number(result || previousValue || currentValue || "0"),
         operation: currentOperation,
         right: Number(value),
       }),
@@ -176,13 +199,16 @@ function handleEquals({
   }
 }
 
+// https://www.avioconsulting.com/blog/overcoming-javascript-numeric-precision-issues
 function applyOperation({ left, operation, right }) {
+  logArguments("applyOperation", arguments);
+
   try {
     switch (operation) {
       case "-":
         return big(left).minus(big(right)).toString();
 
-      case "*":
+      case "x":
         return big(left).times(big(right)).toString();
 
       case "/":

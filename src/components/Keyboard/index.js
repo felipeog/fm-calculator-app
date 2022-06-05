@@ -35,7 +35,7 @@ function Keyboard() {
     { value: ".", className: "Keyboard__default-button" },
     { value: "0", className: "Keyboard__default-button" },
     { value: "/", className: "Keyboard__default-button" },
-    { value: "*", className: "Keyboard__default-button" },
+    { value: "x", className: "Keyboard__default-button" },
   ];
   const bottomButtons = [
     { value: "reset", className: "Keyboard__action-button" },
