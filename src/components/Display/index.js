@@ -9,10 +9,8 @@ function Display() {
   }
 
   const getDisplayContent = () => {
-    const isError = calculator.displayContent.includes("[big.js]");
-
-    if (isError) {
-      return calculator.displayContent.replace("big.js", "Error");
+    if (calculator.displayContent.includes("[Error]")) {
+      return calculator.displayContent;
     }
 
     if (calculator.displayContent.length) {

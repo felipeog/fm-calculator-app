@@ -218,7 +218,13 @@ function applyOperation({ left, operation, right }) {
         return big(left).plus(big(right)).toString();
     }
   } catch (error) {
-    return error?.message ?? "Error";
+    if (error?.message?.includes("big.js")) {
+      alert(error.message.replace("big.js", "Error"));
+    } else {
+      alert("[Error] Internal error");
+    }
+
+    return "0";
   }
 }
 
