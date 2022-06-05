@@ -1,2 +1,19 @@
 .Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.8rem;
+  padding-top: 0.6rem;
+  font-family: var(--font_family);
+  font-size: 2.4rem;
+  border: none;
+  border-bottom-width: 0.2rem;
+  border-bottom-style: solid;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: filter var(--transition_duration);
+}
+
+.Button:hover {
+  filter: brightness(120%);
 }

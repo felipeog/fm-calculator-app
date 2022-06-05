@@ -18,26 +18,26 @@ function Keyboard() {
   }
 
   const topButtons = [
-    { value: "7" },
-    { value: "8" },
-    { value: "9" },
-    { value: "del", color: "navy" },
-    { value: "4" },
-    { value: "5" },
-    { value: "6" },
-    { value: "+" },
-    { value: "1" },
-    { value: "2" },
-    { value: "3" },
-    { value: "-" },
-    { value: "." },
-    { value: "0" },
-    { value: "/" },
-    { value: "x" },
+    { value: "7", className: "Keyboard__default-button" },
+    { value: "8", className: "Keyboard__default-button" },
+    { value: "9", className: "Keyboard__default-button" },
+    { value: "del", className: "Keyboard__action-button" },
+    { value: "4", className: "Keyboard__default-button" },
+    { value: "5", className: "Keyboard__default-button" },
+    { value: "6", className: "Keyboard__default-button" },
+    { value: "+", className: "Keyboard__default-button" },
+    { value: "1", className: "Keyboard__default-button" },
+    { value: "2", className: "Keyboard__default-button" },
+    { value: "3", className: "Keyboard__default-button" },
+    { value: "-", className: "Keyboard__default-button" },
+    { value: ".", className: "Keyboard__default-button" },
+    { value: "0", className: "Keyboard__default-button" },
+    { value: "/", className: "Keyboard__default-button" },
+    { value: "*", className: "Keyboard__default-button" },
   ];
   const bottomButtons = [
-    { value: "reset", color: "navy" },
-    { value: "=", color: "tomato" },
+    { value: "reset", className: "Keyboard__action-button" },
+    { value: "=", className: "Keyboard__equals-button" },
   ];
 
   return (

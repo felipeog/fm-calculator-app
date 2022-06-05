@@ -6,7 +6,7 @@
 
 html,
 body {
-  font-family: "League Spartan", sans-serif;
+  font-family: var(--font_family);
   font-size: 16px;
   color: var(--app_text_color);
 }

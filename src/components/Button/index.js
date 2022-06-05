@@ -1,10 +1,10 @@
+import classNames from "classnames";
+
 import "./index.css";
 
-function Button({ handler, value, color }) {
-  const style = color?.length ? { "background-color": color } : {};
-
+function Button({ handler, value, className }) {
   return (
-    <button class="Button" onClick={[handler, value]} style={style}>
+    <button class={classNames("Button", className)} onClick={[handler, value]}>
       {value}
     </button>
   );

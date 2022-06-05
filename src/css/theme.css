@@ -77,7 +77,12 @@ html[data-theme="theme_3"] {
   --action_key_background: hsl(281, 89%, 26%);
   --action_key_shadow: hsl(285, 91%, 52%);
 
-  --equals_key_text_color: hsl(198, 20%, 13%) v;
+  --equals_key_text_color: hsl(198, 20%, 13%);
   --equals_key_background: hsl(176, 100%, 44%);
   --equals_key_shadow: hsl(177, 92%, 70%);
+}
+
+html {
+  --transition_duration: 200ms;
+  --font_family: "League Spartan", sans-serif;
 }
