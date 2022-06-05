@@ -17,8 +17,6 @@ const [calculator, setCalculator] = createStore({
 });
 
 export function handleKeyboardInput(input) {
-  let result;
-
   setCalculator((prevCalculator) => {
     switch (input) {
       case "del":
