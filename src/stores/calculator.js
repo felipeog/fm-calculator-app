@@ -149,7 +149,7 @@ function handleOperation(
   }
 
   if (currentValue.length) {
-    const isNegative = previousOperation === "-";
+    const isNegative = currentOperation === "-";
     const left = Number(result);
     const right = Number(currentValue) * (isNegative ? -1 : 1);
 
@@ -173,7 +173,8 @@ function handleOperation(
   return {
     isReadingValue: false,
     fromEquals: false,
-    previousOperation: input,
+    previousOperation: currentOperation,
+    currentOperation: input,
   };
 }
 
@@ -211,7 +212,7 @@ function handleEquals({
   }
 
   const value = currentValue || previousValue || result;
-  const left = Number(fromEquals ? result || "0" : previousValue);
+  const left = Number(result || "0");
   const operation = currentOperation || previousOperation;
   const right = Number(value);
 
