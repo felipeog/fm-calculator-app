@@ -2,6 +2,7 @@ import { For } from "solid-js";
 
 import Button from "../Button";
 import { handleKeyboardInput } from "../../stores/calculator";
+import { handleDisplayTransition } from "../../stores/transition";
 import "./index.css";
 
 function Buttons({ buttons, handler }) {
@@ -13,8 +14,9 @@ function Buttons({ buttons, handler }) {
 }
 
 function Keyboard() {
-  function handleButtonClick(data) {
-    handleKeyboardInput(data);
+  function handleButtonClick(input) {
+    handleDisplayTransition(input);
+    handleKeyboardInput(input);
   }
 
   const topButtons = [
