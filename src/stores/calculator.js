@@ -1,6 +1,6 @@
+import { DEV } from "solid-js";
 import { createStore } from "solid-js/store";
 import big from "big.js";
-import { DEV } from "solid-js";
 
 function logArguments(functionName, functionArguments) {
   if (DEV) {
@@ -15,6 +15,7 @@ const [calculator, setCalculator] = createStore({
   currentValue: "",
   result: "",
   isReadingValue: false,
+  fromEquals: false,
   get displayContent() {
     if (this.isReadingValue) {
       return this.currentValue;
@@ -123,21 +124,22 @@ function handleReset() {
     currentValue: "",
     result: "",
     isReadingValue: false,
+    fromEquals: false,
   };
 }
 
 function handleOperation(
   input,
-  { currentValue, currentOperation, previousOperation, result }
+  { currentValue, currentOperation, previousOperation, result, fromEquals }
 ) {
   logArguments("handleOperation", arguments);
 
   const operation = currentOperation || input;
-  const isLastOperationEquals = previousOperation === "=";
 
-  if (isLastOperationEquals) {
+  if (fromEquals) {
     return {
       isReadingValue: false,
+      fromEquals: false,
       previousOperation: currentOperation,
       currentOperation: input,
       previousValue: currentValue,
@@ -147,26 +149,31 @@ function handleOperation(
   }
 
   if (currentValue.length) {
+    const isNegative = previousOperation === "-";
+    const left = Number(result);
+    const right = Number(currentValue) * (isNegative ? -1 : 1);
+
     return {
       isReadingValue: false,
+      fromEquals: false,
       previousValue: currentValue,
       currentValue: "",
       previousOperation: currentOperation,
       currentOperation: input,
       result: result.length
         ? applyOperation({
-            left: Number(result),
+            left,
             operation: operation,
-            right: Number(currentValue),
+            right,
           })
-        : currentValue,
+        : String(right),
     };
   }
 
   return {
     isReadingValue: false,
-    previousOperation: currentOperation,
-    currentOperation: input,
+    fromEquals: false,
+    previousOperation: input,
   };
 }
 
@@ -174,29 +181,53 @@ function handleEquals({
   currentValue,
   previousValue,
   currentOperation,
+  fromEquals,
+  previousOperation,
   result,
 }) {
   logArguments("handleEquals", arguments);
 
-  if (!result.length && !previousValue.length && !currentValue.length) {
+  if (!previousOperation.length && !currentOperation.length) {
     return;
   }
 
-  if (currentOperation.length) {
-    const value = currentValue || previousValue || result;
+  if (previousValue.length && currentValue.length) {
+    const right = Number(currentValue);
+    const operation = currentOperation;
 
     return {
       isReadingValue: false,
-      previousValue: value,
+      fromEquals: true,
+      previousValue: String(right),
       currentValue: "",
-      previousOperation: "=",
+      previousOperation: operation,
+      currentOperation: "",
       result: applyOperation({
-        left: Number(result || previousValue || currentValue || "0"),
-        operation: currentOperation,
-        right: Number(value),
+        left: Number(fromEquals ? previousValue : result),
+        operation,
+        right,
       }),
     };
   }
+
+  const value = currentValue || previousValue || result;
+  const left = Number(fromEquals ? result || "0" : previousValue);
+  const operation = currentOperation || previousOperation;
+  const right = Number(value);
+
+  return {
+    isReadingValue: false,
+    fromEquals: true,
+    previousValue: value,
+    currentValue: "",
+    previousOperation: operation,
+    currentOperation: "",
+    result: applyOperation({
+      left,
+      operation,
+      right,
+    }),
+  };
 }
 
 // https://www.avioconsulting.com/blog/overcoming-javascript-numeric-precision-issues
@@ -204,19 +235,31 @@ function applyOperation({ left, operation, right }) {
   logArguments("applyOperation", arguments);
 
   try {
+    let result;
+
     switch (operation) {
       case "-":
-        return big(left).minus(big(right)).toString();
+        result = big(left).minus(big(right));
+        break;
 
       case "x":
-        return big(left).times(big(right)).toString();
+        result = big(left).times(big(right));
+        break;
 
       case "/":
-        return big(left).div(big(right)).toString();
+        result = big(left).div(big(right));
+        break;
 
       case "+":
-        return big(left).plus(big(right)).toString();
+        result = big(left).plus(big(right));
+        break;
     }
+
+    if (result.gt(999_999_999_999) || result.lt(-999_999_999_999)) {
+      throw Error("[big.js] Out of bounds");
+    }
+
+    return result.toString();
   } catch (error) {
     if (error?.message?.includes("big.js")) {
       alert(error.message.replace("big.js", "Error"));
