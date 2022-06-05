@@ -1,7 +1,7 @@
 .Keyboard {
   margin-top: 1.2rem;
   padding: 1.2rem;
-  background-color: var(--primary_200);
+  background-color: var(--keyboard_background);
   border-radius: 0.6rem;
 }
 

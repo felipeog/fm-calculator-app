@@ -1,47 +1,83 @@
 html[data-theme="theme_1"] {
-  --primary_100: hsl(224, 36%, 15%);
-  --primary_200: hsl(223, 31%, 20%);
-  --primary_300: hsl(222, 26%, 31%);
-  --primary_400: hsl(221, 14%, 31%);
-  --primary_500: hsl(224, 28%, 35%);
-  --primary_600: hsl(225, 21%, 49%);
+  /* general */
+  --app_background: hsl(222, 26%, 31%);
+  --app_text_color: hsl(0, 0%, 100%);
 
-  --secondary_100: hsl(6, 70%, 34%);
-  --secondary_200: hsl(6, 63%, 50%);
-  --secondary_300: hsl(28, 16%, 65%);
-  --secondary_400: hsl(30, 25%, 89%);
+  /* toggle */
+  --toggle_background: hsl(223, 31%, 20%);
+  --toggle_key: hsl(6, 63%, 50%);
 
-  --text_color: #fff;
+  /* display */
+  --display_background: hsl(224, 36%, 15%);
+
+  /* keyboard */
+  --keyboard_background: hsl(223, 31%, 20%);
+
+  --key_text_color: hsl(221, 14%, 31%);
+  --key_background: hsl(30, 25%, 89%);
+  --key_shadow: hsl(28, 16%, 65%);
+
+  --action_key_text_color: hsl(0, 0%, 100%);
+  --action_key_background: hsl(225, 21%, 49%);
+  --action_key_shadow: hsl(224, 28%, 35%);
+
+  --equals_key_text_color: hsl(0, 0%, 100%);
+  --equals_key_background: hsl(6, 63%, 50%);
+  --equals_key_shadow: hsl(6, 70%, 34%);
 }
 
 html[data-theme="theme_2"] {
-  --primary_100: hsl(185, 58%, 25%);
-  --primary_200: hsl(185, 42%, 37%);
-  --primary_300: hsl(0, 5%, 81%);
-  --primary_400: hsl(45, 7%, 89%);
-  --primary_500: hsl(0, 0%, 90%);
-  --primary_600: hsl(0, 0%, 93%);
+  /* general */
+  --app_background: hsl(0, 0%, 90%);
+  --app_text_color: hsl(60, 10%, 19%);
 
-  --secondary_100: hsl(60, 10%, 19%);
-  --secondary_200: hsl(25, 99%, 27%);
-  --secondary_300: hsl(25, 98%, 40%);
-  --secondary_400: hsl(35, 11%, 61%);
+  /* toggle */
+  --toggle_background: hsl(0, 5%, 81%);
+  --toggle_key: hsl(25, 98%, 40%);
 
-  --text_color: #000;
+  /* display */
+  --display_background: hsl(0, 0%, 93%);
+
+  /* keyboard */
+  --keyboard_background: hsl(0, 5%, 81%);
+
+  --key_text_color: hsl(60, 10%, 19%);
+  --key_background: hsl(45, 7%, 89%);
+  --key_shadow: hsl(35, 11%, 61%);
+
+  --action_key_text_color: hsl(0, 0%, 100%);
+  --action_key_background: hsl(185, 42%, 37%);
+  --action_key_shadow: hsl(185, 58%, 25%);
+
+  --equals_key_text_color: hsl(0, 0%, 100%);
+  --equals_key_background: hsl(25, 98%, 40%);
+  --equals_key_shadow: hsl(25, 99%, 27%);
 }
 
 html[data-theme="theme_3"] {
-  --primary_100: hsl(268, 75%, 9%);
-  --primary_200: hsl(268, 71%, 12%);
-  --primary_300: hsl(268, 47%, 21%);
-  --primary_400: hsl(281, 89%, 26%);
-  --primary_500: hsl(290, 70%, 36%);
-  --primary_600: hsl(285, 91%, 52%);
+  /* general */
+  --app_background: hsl(268, 75%, 9%);
+  --app_text_color: hsl(52, 100%, 62%);
 
-  --secondary_100: hsl(198, 20%, 13%);
-  --secondary_200: hsl(176, 100%, 44%);
-  --secondary_300: hsl(52, 100%, 62%);
-  --secondary_400: hsl(177, 92%, 70%);
+  /* toggle */
+  --toggle_background: hsl(268, 71%, 12%);
+  --toggle_key: hsl(176, 100%, 44%);
 
-  --text_color: #fff;
+  /* display */
+  --display_background: hsl(268, 71%, 12%);
+
+  /* keyboard */
+  --keyboard_background: hsl(268, 71%, 12%);
+
+  --key_text_color: hsl(52, 100%, 62%);
+  --key_background: hsl(268, 47%, 21%);
+  --key_shadow: hsl(290, 70%, 36%);
+
+  --action_key_text_color: hsl(0, 0%, 100%);
+  --action_key_background: hsl(281, 89%, 26%);
+  --action_key_shadow: hsl(285, 91%, 52%);
+
+  --equals_key_text_color: hsl(198, 20%, 13%) v;
+  --equals_key_background: hsl(176, 100%, 44%);
+  --equals_key_shadow: hsl(177, 92%, 70%);
 }
