@@ -31,17 +31,13 @@ export function handleKeyboardInput(input) {
         return handleReset();
 
       case "=":
-        result = handleEquals(prevCalculator);
-        console.log("handleEquals", JSON.stringify(result, null, 2));
-        return result;
+        return handleEquals(prevCalculator);
 
       case "+":
       case "-":
       case "/":
       case "*":
-        result = handleOperation(input, prevCalculator);
-        console.log("handleOperation", JSON.stringify(result, null, 2));
-        return result;
+        return handleOperation(input, prevCalculator);
 
       case "0":
       case "1":
@@ -53,9 +49,7 @@ export function handleKeyboardInput(input) {
       case "7":
       case "8":
       case "9":
-        result = handleNumber(input, prevCalculator);
-        console.log("handleNumber", JSON.stringify(result, null, 2));
-        return result;
+        return handleNumber(input, prevCalculator);
 
       default:
         return prevCalculator;
@@ -122,9 +116,6 @@ function handleOperation(
       ? result + operation + currentValue
       : currentValue;
 
-    console.log("🚀 ~ currentValue", currentValue);
-    console.log("🚀 ~ evalExpression", evalExpression);
-
     return {
       isReadingValue: false,
       previousValue: currentValue,
@@ -155,10 +146,6 @@ function handleEquals({
   if (currentOperation.length) {
     const value = currentValue.length ? currentValue : previousValue;
     const evalExpression = (result || "0") + currentOperation + value;
-
-    console.log("🚀 ~ currentOperation", currentOperation);
-    console.log("🚀 ~ value", value);
-    console.log("🚀 ~ evalExpression", evalExpression);
 
     return {
       isReadingValue: false,

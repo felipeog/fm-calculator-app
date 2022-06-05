@@ -10,15 +10,11 @@ const [theme, setTheme] = createStore({
 });
 
 createEffect(() => {
-  console.log("effect", theme.name);
-
   localStorage.setItem(themeLsKey, theme.name);
   document.querySelector("html").setAttribute("data-theme", theme.name);
 });
 
 export function getCurrentThemeIndex() {
-  console.log(themes.indexOf(theme.name));
-
   return themes.indexOf(theme.name);
 }
 
