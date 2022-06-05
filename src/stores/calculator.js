@@ -111,7 +111,7 @@ function handleReset() {
 
 function handleOperation(
   input,
-  { currentValue, currentOperation, previousOperation, result }
+  { currentValue, previousValue, currentOperation, previousOperation, result }
 ) {
   const operation = currentOperation || input;
   const isLastOperationEquals = previousOperation === "=";
@@ -145,6 +145,7 @@ function handleOperation(
     isReadingValue: false,
     previousOperation: currentOperation,
     currentOperation: input,
+    result: previousValue,
   };
 }
 
