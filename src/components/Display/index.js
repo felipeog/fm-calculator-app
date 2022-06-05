@@ -4,12 +4,22 @@ import transition from "../../stores/transition";
 import "./index.css";
 
 function Display() {
+  function formatValue(value) {
+    return new Intl.NumberFormat("en-US").format(value);
+  }
+
   const getDisplayContent = () => {
     if (calculator.displayContent.length) {
-      return new Intl.NumberFormat().format(calculator.displayContent);
+      if (calculator.displayContent.includes(".")) {
+        const [left, right] = calculator.displayContent.split(".");
+
+        return `${formatValue(left)}.${right ?? ""}`;
+      }
+
+      return formatValue(calculator.displayContent);
     }
 
-    return calculator.displayContent;
+    return null;
   };
 
   return (
