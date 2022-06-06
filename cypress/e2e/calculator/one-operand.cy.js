@@ -1,8 +1,12 @@
 /// <reference types="cypress" />
 
 describe("operand/operation/equals", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("/");
+  });
+
+  beforeEach(() => {
+    cy.pressButton("reset");
   });
 
   it("sums", () => {
@@ -63,8 +67,12 @@ describe("operand/operation/equals", () => {
 });
 
 describe("operation/operand/equals", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("/");
+  });
+
+  beforeEach(() => {
+    cy.pressButton("reset");
   });
 
   it("sums", () => {

@@ -1,8 +1,12 @@
 /// <reference types="cypress" />
 
 describe("positive/operand/positive/equals", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("/");
+  });
+
+  beforeEach(() => {
+    cy.pressButton("reset");
   });
 
   it("sums", () => {
@@ -65,8 +69,12 @@ describe("positive/operand/positive/equals", () => {
 // the calculator does not accept negative values as the second operand
 // it will "forget" the previous operation, and do a subtraction
 describe("negative/operand/negative/equals", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("/");
+  });
+
+  beforeEach(() => {
+    cy.pressButton("reset");
   });
 
   it("sums", () => {
@@ -137,8 +145,12 @@ describe("negative/operand/negative/equals", () => {
 // the calculator does not accept negative values as the second operand
 // it will "forget" the previous operation, and do a subtraction
 describe("positive/negative operations", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("/");
+  });
+
+  beforeEach(() => {
+    cy.pressButton("reset");
   });
 
   it("sums", () => {
@@ -203,8 +215,12 @@ describe("positive/negative operations", () => {
 });
 
 describe("negative/positive operations", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("/");
+  });
+
+  beforeEach(() => {
+    cy.pressButton("reset");
   });
 
   it("sums", () => {
