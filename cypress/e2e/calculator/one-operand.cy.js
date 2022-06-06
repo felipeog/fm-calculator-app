@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("operand/operation", () => {
+describe("operand/operation/equals", () => {
   beforeEach(() => {
     cy.visit("/");
   });
@@ -62,7 +62,7 @@ describe("operand/operation", () => {
   });
 });
 
-describe("operation/operand", () => {
+describe("operation/operand/equals", () => {
   beforeEach(() => {
     cy.visit("/");
   });

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("positive/positive operations", () => {
+describe("positive/operand/positive/equals", () => {
   beforeEach(() => {
     cy.visit("/");
   });
@@ -64,7 +64,7 @@ describe("positive/positive operations", () => {
 
 // the calculator does not accept negative values as the second operand
 // it will "forget" the previous operation, and do a subtraction
-describe("negative/negative operations", () => {
+describe("negative/operand/negative/equals", () => {
   beforeEach(() => {
     cy.visit("/");
   });
