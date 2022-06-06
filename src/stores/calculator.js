@@ -151,7 +151,6 @@ function handleOperation(
   if (currentValue.length) {
     const isNegative = currentOperation === "-";
     const left = Number(result);
-    const right = Number(currentValue) * (isNegative ? -1 : 1);
 
     return {
       isReadingValue: false,
@@ -164,9 +163,9 @@ function handleOperation(
         ? applyOperation({
             left,
             operation: operation,
-            right,
+            right: Number(currentValue),
           })
-        : String(right),
+        : String(Number(currentValue) * (isNegative ? -1 : 1)),
     };
   }
 
