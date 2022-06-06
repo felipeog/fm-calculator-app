@@ -66,6 +66,8 @@ export function handleKeyboardInput(input) {
   });
 }
 
+// TODO: define boundaries
+// TODO: define decimal precision
 function handleNumber(input, { currentValue }) {
   logArguments("handleNumber", arguments);
 
