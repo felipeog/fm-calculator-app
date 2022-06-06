@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("positive/operand/positive/equals", () => {
+describe("positive/operation/positive/equals", () => {
   before(() => {
     cy.visit("/");
   });
@@ -68,7 +68,7 @@ describe("positive/operand/positive/equals", () => {
 
 // the calculator does not accept negative values as the second operand
 // it will "forget" the previous operation, and do a subtraction
-describe("negative/operand/negative/equals", () => {
+describe("negative/operation/negative/equals", () => {
   before(() => {
     cy.visit("/");
   });
@@ -144,7 +144,7 @@ describe("negative/operand/negative/equals", () => {
 
 // the calculator does not accept negative values as the second operand
 // it will "forget" the previous operation, and do a subtraction
-describe("positive/negative operations", () => {
+describe("positive/operation/negative/equals", () => {
   before(() => {
     cy.visit("/");
   });
@@ -214,7 +214,7 @@ describe("positive/negative operations", () => {
   });
 });
 
-describe("negative/positive operations", () => {
+describe("negative/operation/positive/equals", () => {
   before(() => {
     cy.visit("/");
   });
