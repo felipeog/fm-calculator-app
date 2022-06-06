@@ -6,59 +6,59 @@ describe("positive/positive operations", () => {
   });
 
   it("sums", () => {
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("+").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("+");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "3");
+    cy.pressButton("=");
+    cy.checkDisplay("3");
   });
 
   it("subtracts", () => {
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("-").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("=");
+    cy.checkDisplay("1");
   });
 
   it("multiplies", () => {
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("x").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("x");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("3").click();
-    cy.get(".Display").should("have.text", "3");
+    cy.pressButton("3");
+    cy.checkDisplay("3");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "6");
+    cy.pressButton("=");
+    cy.checkDisplay("6");
   });
 
   it("divides", () => {
-    cy.get("button").contains("6").click();
-    cy.get(".Display").should("have.text", "6");
+    cy.pressButton("6");
+    cy.checkDisplay("6");
 
-    cy.get("button").contains("/").click();
-    cy.get(".Display").should("have.text", "6");
+    cy.pressButton("/");
+    cy.checkDisplay("6");
 
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "3");
+    cy.pressButton("=");
+    cy.checkDisplay("3");
   });
 });
 
@@ -70,67 +70,67 @@ describe("negative/negative operations", () => {
   });
 
   it("sums", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("-");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("+").click();
-    cy.get(".Display").should("have.text", "-1");
+    cy.pressButton("+");
+    cy.checkDisplay("-1");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("-");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-2");
+    cy.pressButton("=");
+    cy.checkDisplay("-2");
   });
 
   it("subtracts", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("-").click();
-    cy.get(".Display").should("have.text", "-2");
+    cy.pressButton("-");
+    cy.checkDisplay("-2");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-4");
+    cy.pressButton("=");
+    cy.checkDisplay("-4");
   });
 
   it("multiplies", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("x").click();
-    cy.get(".Display").should("have.text", "-2");
+    cy.pressButton("x");
+    cy.checkDisplay("-2");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("3").click();
-    cy.get(".Display").should("have.text", "3");
+    cy.pressButton("-");
+    cy.pressButton("3");
+    cy.checkDisplay("3");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-5");
+    cy.pressButton("=");
+    cy.checkDisplay("-5");
   });
 
   it("divides", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("6").click();
-    cy.get(".Display").should("have.text", "6");
+    cy.pressButton("-");
+    cy.pressButton("6");
+    cy.checkDisplay("6");
 
-    cy.get("button").contains("/").click();
-    cy.get(".Display").should("have.text", "-6");
+    cy.pressButton("/");
+    cy.checkDisplay("-6");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-8");
+    cy.pressButton("=");
+    cy.checkDisplay("-8");
   });
 });
 
@@ -142,63 +142,63 @@ describe("positive/negative operations", () => {
   });
 
   it("sums", () => {
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("+").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("+");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("-");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "0");
+    cy.pressButton("=");
+    cy.checkDisplay("0");
   });
 
   it("subtracts", () => {
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("-").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "0");
+    cy.pressButton("=");
+    cy.checkDisplay("0");
   });
 
   it("multiplies", () => {
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("x").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("x");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("3").click();
-    cy.get(".Display").should("have.text", "3");
+    cy.pressButton("-");
+    cy.pressButton("3");
+    cy.checkDisplay("3");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-1");
+    cy.pressButton("=");
+    cy.checkDisplay("-1");
   });
 
   it("divides", () => {
-    cy.get("button").contains("6").click();
-    cy.get(".Display").should("have.text", "6");
+    cy.pressButton("6");
+    cy.checkDisplay("6");
 
-    cy.get("button").contains("/").click();
-    cy.get(".Display").should("have.text", "6");
+    cy.pressButton("/");
+    cy.checkDisplay("6");
 
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "4");
+    cy.pressButton("=");
+    cy.checkDisplay("4");
   });
 });
 
@@ -208,62 +208,62 @@ describe("negative/positive operations", () => {
   });
 
   it("sums", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("-");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("+").click();
-    cy.get(".Display").should("have.text", "-1");
+    cy.pressButton("+");
+    cy.checkDisplay("-1");
 
-    cy.get("button").contains("1").click();
-    cy.get(".Display").should("have.text", "1");
+    cy.pressButton("1");
+    cy.checkDisplay("1");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "0");
+    cy.pressButton("=");
+    cy.checkDisplay("0");
   });
 
   it("subtracts", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("-").click();
-    cy.get(".Display").should("have.text", "-2");
+    cy.pressButton("-");
+    cy.checkDisplay("-2");
 
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-4");
+    cy.pressButton("=");
+    cy.checkDisplay("-4");
   });
 
   it("multiplies", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("-");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("x").click();
-    cy.get(".Display").should("have.text", "-2");
+    cy.pressButton("x");
+    cy.checkDisplay("-2");
 
-    cy.get("button").contains("3").click();
-    cy.get(".Display").should("have.text", "3");
+    cy.pressButton("3");
+    cy.checkDisplay("3");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-6");
+    cy.pressButton("=");
+    cy.checkDisplay("-6");
   });
 
   it("divides", () => {
-    cy.get("button").contains("-").click();
-    cy.get("button").contains("6").click();
-    cy.get(".Display").should("have.text", "6");
+    cy.pressButton("-");
+    cy.pressButton("6");
+    cy.checkDisplay("6");
 
-    cy.get("button").contains("/").click();
-    cy.get(".Display").should("have.text", "-6");
+    cy.pressButton("/");
+    cy.checkDisplay("-6");
 
-    cy.get("button").contains("2").click();
-    cy.get(".Display").should("have.text", "2");
+    cy.pressButton("2");
+    cy.checkDisplay("2");
 
-    cy.get("button").contains("=").click();
-    cy.get(".Display").should("have.text", "-3");
+    cy.pressButton("=");
+    cy.checkDisplay("-3");
   });
 });
