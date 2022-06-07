@@ -6,7 +6,9 @@
     "start": "solid-scripts start",
     "build": "solid-scripts build",
     "test": "solid-scripts test",
-    "cypress": "cypress open"
+    "cypress": "cypress",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "devDependencies": {
     "cypress": "^10.0.2",
