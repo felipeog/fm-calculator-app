@@ -74,12 +74,9 @@ function handleNumber(input, { currentValue }) {
   const value = currentValue === "0" ? input : `${currentValue}${input}`;
 
   if (big(value).gte(boundaries.upper) || big(value).lte(boundaries.lower)) {
-    // TODO: improve error handling
-    alert("[Error] Out of bounds");
-
     return {
       isReadingValue: true,
-      currentValue: "0",
+      currentValue: currentValue,
     };
   }
 
@@ -204,13 +201,14 @@ function handleEquals({
 }) {
   logArguments("handleEquals", arguments);
 
-  if (!previousOperation.length && !currentOperation.length) {
+  const operation = currentOperation || previousOperation;
+
+  if (!operation.length) {
     return;
   }
 
   if (previousValue.length && currentValue.length) {
     const right = Number(currentValue);
-    const operation = currentOperation;
 
     return {
       isReadingValue: false,
@@ -229,7 +227,6 @@ function handleEquals({
 
   const value = currentValue || previousValue || result;
   const left = Number(result || "0");
-  const operation = currentOperation || previousOperation;
   const right = Number(value);
 
   return {
@@ -252,6 +249,10 @@ function applyOperation({ left, operation, right }) {
   logArguments("applyOperation", arguments);
 
   try {
+    if (operation === "/" && right === 0) {
+      throw Error("[Error]: Division by zero");
+    }
+
     let result;
 
     switch (operation) {
@@ -273,7 +274,7 @@ function applyOperation({ left, operation, right }) {
     }
 
     if (result.gte(boundaries.upper) || result.lte(boundaries.lower)) {
-      throw Error("Out of bounds");
+      throw Error("[Error]: Out of bounds");
     }
 
     if (result.toString().includes(".")) {
@@ -286,22 +287,10 @@ function applyOperation({ left, operation, right }) {
 
     return result.toString();
   } catch (error) {
-    console.error(error);
+    const message = error?.message ?? "[Error] Internal error";
 
-    // TODO: improve error handling
-    if (error?.message?.includes("Division by zero")) {
-      alert("[Error] Division by zero");
-
-      return "0";
-    }
-
-    if (error?.message?.includes("Out of bounds")) {
-      alert("[Error] Out of bounds");
-
-      return "0";
-    }
-
-    alert("[Error] Internal error");
+    console.log(message);
+    alert(message);
 
     return "0";
   }
