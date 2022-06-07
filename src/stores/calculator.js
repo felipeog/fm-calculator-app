@@ -4,7 +4,7 @@ import big from "big.js";
 
 function logArguments(functionName, functionArguments) {
   if (DEV) {
-    console.log(functionName, JSON.stringify(...functionArguments, null, 2));
+    console.log(functionName, JSON.stringify([...functionArguments], null, 2));
   }
 }
 
