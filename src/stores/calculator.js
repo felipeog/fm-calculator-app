@@ -292,7 +292,7 @@ function applyOperation({ left, operation, right }) {
     console.log(message);
     alert(message);
 
-    return "0";
+    return "";
   }
 }
 

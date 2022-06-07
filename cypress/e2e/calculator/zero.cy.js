@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe.only("zero/operation/zero", () => {
+describe("zero/operation/zero", () => {
   before(() => {
     cy.visit("/");
   });
@@ -183,7 +183,6 @@ describe("positive/operation/zero", () => {
     cy.checkDisplay("0");
   });
 
-  // errors trigger a alert and result in zero
   it("divides", () => {
     cy.pressButton("1");
     cy.checkDisplay("1");
@@ -195,7 +194,7 @@ describe("positive/operation/zero", () => {
     cy.checkDisplay("0");
 
     cy.pressButton("=");
-    cy.checkDisplay("0");
+    cy.checkDisplayEmpty();
   });
 });
 
@@ -259,7 +258,6 @@ describe("negative/operation/zero", () => {
     cy.checkDisplay("0");
   });
 
-  // errors trigger a alert and result in zero
   it("divides", () => {
     cy.pressButton("-");
     cy.checkDisplayEmpty();
@@ -274,7 +272,7 @@ describe("negative/operation/zero", () => {
     cy.checkDisplay("0");
 
     cy.pressButton("=");
-    cy.checkDisplay("0");
+    cy.checkDisplayEmpty();
   });
 });
 
