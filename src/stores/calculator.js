@@ -71,15 +71,11 @@ export function handleKeyboardInput(input) {
 function handleNumber(input, { currentValue }) {
   logArguments("handleNumber", arguments);
 
-  if (currentValue === "0" && input === "0") {
-    return {
-      isReadingValue: true,
-    };
-  }
+  const value = currentValue === "0" ? input : `${currentValue}${input}`;
 
   return {
     isReadingValue: true,
-    currentValue: `${currentValue}${input}`,
+    currentValue: value,
   };
 }
 
