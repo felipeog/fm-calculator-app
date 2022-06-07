@@ -13,5 +13,5 @@ Cypress.Commands.add("checkDisplayEmpty", () => {
   // to ensure the display is empty
   cy.wait(110);
 
-  cy.get(".Display").should("not.have.text");
+  cy.get(".Display").should("have.text", "");
 });
