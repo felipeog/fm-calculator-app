@@ -1,7 +1,6 @@
 import { createEffect } from "solid-js";
 import { createStore } from "solid-js/store";
-
-import themes, { defaultTheme } from "../consts/themes";
+import { themes, defaultTheme } from "../consts/themes";
 
 const themeLsKey = "calculator-app/theme";
 
