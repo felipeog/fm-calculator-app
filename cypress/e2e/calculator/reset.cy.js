@@ -37,6 +37,6 @@ describe("reset", () => {
     cy.checkDisplay("123,456,789");
 
     cy.pressButton("reset");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
   });
 });

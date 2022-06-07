@@ -77,7 +77,7 @@ describe("operation/operand/equals", () => {
 
   it("sums", () => {
     cy.pressButton("+");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("2");
     cy.checkDisplay("2");
@@ -91,7 +91,7 @@ describe("operation/operand/equals", () => {
 
   it("subtracts", () => {
     cy.pressButton("-");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("2");
     cy.checkDisplay("2");
@@ -105,7 +105,7 @@ describe("operation/operand/equals", () => {
 
   it("multiplies", () => {
     cy.pressButton("x");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("2");
     cy.checkDisplay("2");
@@ -119,7 +119,7 @@ describe("operation/operand/equals", () => {
 
   it("divides", () => {
     cy.pressButton("/");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("2");
     cy.checkDisplay("2");

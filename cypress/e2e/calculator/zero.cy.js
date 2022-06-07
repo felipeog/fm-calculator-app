@@ -1,5 +1,71 @@
 /// <reference types="cypress" />
 
+describe.only("zero/operation/zero", () => {
+  before(() => {
+    cy.visit("/");
+  });
+
+  beforeEach(() => {
+    cy.pressButton("reset");
+  });
+
+  it("sums", () => {
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("+");
+    cy.checkDisplay("0");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("=");
+    cy.checkDisplay("0");
+  });
+
+  it("subtracts", () => {
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("-");
+    cy.checkDisplay("0");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("=");
+    cy.checkDisplay("0");
+  });
+
+  it("multiplies", () => {
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("x");
+    cy.checkDisplay("0");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("=");
+    cy.checkDisplay("0");
+  });
+
+  it("divides", () => {
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("/");
+    cy.checkDisplay("0");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("=");
+    cy.checkDisplayEmpty();
+  });
+});
+
 describe("zero/operation/positive", () => {
   before(() => {
     cy.visit("/");
@@ -144,7 +210,7 @@ describe("negative/operation/zero", () => {
 
   it("sums", () => {
     cy.pressButton("-");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("1");
     cy.checkDisplay("1");
@@ -161,7 +227,7 @@ describe("negative/operation/zero", () => {
 
   it("subtracts", () => {
     cy.pressButton("-");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("1");
     cy.checkDisplay("1");
@@ -178,7 +244,7 @@ describe("negative/operation/zero", () => {
 
   it("multiplies", () => {
     cy.pressButton("-");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("1");
     cy.checkDisplay("1");
@@ -196,7 +262,7 @@ describe("negative/operation/zero", () => {
   // errors trigger a alert and result in zero
   it("divides", () => {
     cy.pressButton("-");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
 
     cy.pressButton("1");
     cy.checkDisplay("1");

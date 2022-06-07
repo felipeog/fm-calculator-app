@@ -61,6 +61,6 @@ describe("delete", () => {
     cy.checkDisplay("1");
 
     cy.pressButton("del");
-    cy.checkDisplay("");
+    cy.checkDisplayEmpty();
   });
 });
