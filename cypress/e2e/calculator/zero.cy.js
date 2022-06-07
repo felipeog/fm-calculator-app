@@ -144,6 +144,8 @@ describe("negative/operation/zero", () => {
 
   it("sums", () => {
     cy.pressButton("-");
+    cy.checkDisplay("");
+
     cy.pressButton("1");
     cy.checkDisplay("1");
 
@@ -159,6 +161,8 @@ describe("negative/operation/zero", () => {
 
   it("subtracts", () => {
     cy.pressButton("-");
+    cy.checkDisplay("");
+
     cy.pressButton("1");
     cy.checkDisplay("1");
 
@@ -174,6 +178,8 @@ describe("negative/operation/zero", () => {
 
   it("multiplies", () => {
     cy.pressButton("-");
+    cy.checkDisplay("");
+
     cy.pressButton("1");
     cy.checkDisplay("1");
 
@@ -190,6 +196,8 @@ describe("negative/operation/zero", () => {
   // errors trigger a alert and result in zero
   it("divides", () => {
     cy.pressButton("-");
+    cy.checkDisplay("");
+
     cy.pressButton("1");
     cy.checkDisplay("1");
 
@@ -220,65 +228,98 @@ describe("input and render", () => {
 
   it("should not render multiple zeros", () => {
     cy.pressButton("0");
+    cy.checkDisplay("0");
+
     cy.pressButton("0");
+    cy.checkDisplay("0");
+
     cy.pressButton("0");
     cy.checkDisplay("0");
   });
 
   it("should not render more than one leading zero on decimals", () => {
     cy.pressButton("0");
+    cy.checkDisplay("0");
+
     cy.pressButton("0");
+    cy.checkDisplay("0");
+
     cy.pressButton(".");
+    cy.checkDisplay("0.");
+
     cy.pressButton("1");
     cy.checkDisplay("0.1");
   });
 
   it("should not render leading zero on integers", () => {
     cy.pressButton("0");
+    cy.checkDisplay("0");
+
     cy.pressButton("6");
     cy.checkDisplay("6");
   });
 
   it("should not render leading zero on integers as second operand", () => {
     cy.pressButton("6");
-    cy.pressButton("x");
-    cy.pressButton("0");
-    cy.pressButton("6");
+    cy.checkDisplay("6");
 
+    cy.pressButton("x");
+    cy.checkDisplay("6");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton("6");
     cy.checkDisplay("6");
   });
 
   it('should render leading zero on decimals, input starting with "0"', () => {
     cy.pressButton("0");
-    cy.pressButton(".");
-    cy.pressButton("6");
+    cy.checkDisplay("0");
 
+    cy.pressButton(".");
+    cy.checkDisplay("0.");
+
+    cy.pressButton("6");
     cy.checkDisplay("0.6");
   });
 
   it('should render leading zero on decimals, input starting with "."', () => {
     cy.pressButton(".");
-    cy.pressButton("6");
+    cy.checkDisplay("0.");
 
+    cy.pressButton("6");
     cy.checkDisplay("0.6");
   });
 
   it('should render leading zero on decimals as second operand, input starting with "0"', () => {
     cy.pressButton("6");
-    cy.pressButton("x");
-    cy.pressButton("0");
-    cy.pressButton(".");
-    cy.pressButton("6");
+    cy.checkDisplay("6");
 
+    cy.pressButton("x");
+    cy.checkDisplay("6");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0");
+
+    cy.pressButton(".");
+    cy.checkDisplay("0.");
+
+    cy.pressButton("6");
     cy.checkDisplay("0.6");
   });
 
   it('should render leading zero on decimals as second operand, input starting with "."', () => {
     cy.pressButton("6");
-    cy.pressButton("x");
-    cy.pressButton(".");
-    cy.pressButton("6");
+    cy.checkDisplay("6");
 
+    cy.pressButton("x");
+    cy.checkDisplay("6");
+
+    cy.pressButton(".");
+    cy.checkDisplay("0.");
+
+    cy.pressButton("6");
     cy.checkDisplay("0.6");
   });
 });
