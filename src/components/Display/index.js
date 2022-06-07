@@ -1,5 +1,5 @@
-import calculator from "../../stores/calculator";
-import transition from "../../stores/transition";
+import { calculator } from "../../stores/calculator";
+import { transition } from "../../stores/transition";
 
 import "./index.css";
 

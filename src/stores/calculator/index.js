@@ -24,7 +24,7 @@ const [calculator, setCalculator] = createStore({
   },
 });
 
-export function handleKeyboardInput(input) {
+function handleKeyboardInput(input) {
   logArguments("handleKeyboardInput", arguments);
 
   setCalculator((prevCalculator) => {
@@ -65,4 +65,4 @@ export function handleKeyboardInput(input) {
   });
 }
 
-export default calculator;
+export { calculator, handleKeyboardInput };
