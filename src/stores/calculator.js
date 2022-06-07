@@ -1,6 +1,8 @@
 import { DEV } from "solid-js";
 import { createStore } from "solid-js/store";
 import big from "big.js";
+import boundaries from "../consts/boundaries";
+import decimalPrecision from "../consts/decimalPrecision";
 
 function logArguments(functionName, functionArguments) {
   if (DEV) {
@@ -66,12 +68,29 @@ export function handleKeyboardInput(input) {
   });
 }
 
-// TODO: define boundaries
-// TODO: define decimal precision
 function handleNumber(input, { currentValue }) {
   logArguments("handleNumber", arguments);
 
   const value = currentValue === "0" ? input : `${currentValue}${input}`;
+
+  if (big(value).gte(boundaries.upper) || big(value).lte(boundaries.lower)) {
+    // TODO: improve error handling
+    alert("[Error] Out of bounds");
+
+    return {
+      isReadingValue: true,
+      currentValue: "0",
+    };
+  }
+
+  if (value.includes(".")) {
+    const [integer, decimals] = value.split(".");
+
+    return {
+      isReadingValue: true,
+      currentValue: `${integer}.${decimals.slice(0, decimalPrecision)}`,
+    };
+  }
 
   return {
     isReadingValue: true,
@@ -128,7 +147,7 @@ function handleReset() {
 
 function handleOperation(
   input,
-  { currentValue, currentOperation, previousOperation, result, fromEquals }
+  { currentValue, currentOperation, result, fromEquals }
 ) {
   logArguments("handleOperation", arguments);
 
@@ -253,17 +272,36 @@ function applyOperation({ left, operation, right }) {
         break;
     }
 
-    if (result.gt(999_999_999_999) || result.lt(-999_999_999_999)) {
-      throw Error("[big.js] Out of bounds");
+    if (result.gte(boundaries.upper) || result.lte(boundaries.lower)) {
+      throw Error("Out of bounds");
+    }
+
+    if (result.toString().includes(".")) {
+      const [_, decimals] = result.toString().split(".");
+
+      return decimals.length > 4
+        ? result.toFixed(decimalPrecision).toString()
+        : result.toString();
     }
 
     return result.toString();
   } catch (error) {
-    if (error?.message?.includes("big.js")) {
-      alert(error.message.replace("big.js", "Error"));
-    } else {
-      alert("[Error] Internal error");
+    console.error(error);
+
+    // TODO: improve error handling
+    if (error?.message?.includes("Division by zero")) {
+      alert("[Error] Division by zero");
+
+      return "0";
     }
+
+    if (error?.message?.includes("Out of bounds")) {
+      alert("[Error] Out of bounds");
+
+      return "0";
+    }
+
+    alert("[Error] Internal error");
 
     return "0";
   }
