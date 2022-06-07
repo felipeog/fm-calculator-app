@@ -63,4 +63,24 @@ describe("delete", () => {
     cy.pressButton("del");
     cy.checkDisplayEmpty();
   });
+
+  it.only("should not delete result", () => {
+    cy.pressButton("2");
+    cy.checkDisplay("2");
+
+    cy.pressButton("x");
+    cy.checkDisplay("2");
+
+    cy.pressButton("9");
+    cy.checkDisplay("9");
+
+    cy.pressButton("=");
+    cy.checkDisplay("18");
+
+    cy.pressButton("del");
+    cy.checkDisplay("18");
+
+    cy.pressButton("del");
+    cy.checkDisplay("18");
+  });
 });
