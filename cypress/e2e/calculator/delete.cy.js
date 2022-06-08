@@ -64,7 +64,7 @@ describe("delete", () => {
     cy.checkDisplayEmpty();
   });
 
-  it.only("should not delete result", () => {
+  it("should not delete result", () => {
     cy.pressButton("2");
     cy.checkDisplay("2");
 

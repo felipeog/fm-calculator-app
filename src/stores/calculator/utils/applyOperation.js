@@ -49,7 +49,7 @@ export function applyOperation({ left, operation, right }) {
     const message = error?.message ?? "[Error] Internal error";
 
     console.log(message);
-    alert(message);
+    window.alert(message);
 
     return "";
   }
