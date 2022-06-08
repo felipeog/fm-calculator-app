@@ -78,7 +78,7 @@ describe("decimals", () => {
     cy.checkDisplay("0.6");
   });
 
-  it.only("should not surpass decimal precision", () => {
+  it("should not surpass decimal precision", () => {
     cy.pressButton(".");
     cy.checkDisplay("0.");
 

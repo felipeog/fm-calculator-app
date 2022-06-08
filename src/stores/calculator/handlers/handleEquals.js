@@ -13,7 +13,7 @@ export function handleEquals({
 
   const operation = currentOperation || previousOperation;
 
-  if (!operation.length) {
+  if (!operation.length || (!previousValue.length && !currentValue.length)) {
     return;
   }
 

@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
-// TODO:
-describe.skip("equals", () => {
+describe("equals", () => {
   before(() => {
     cy.visit("/");
   });
@@ -10,7 +9,36 @@ describe.skip("equals", () => {
     cy.pressButton("reset");
   });
 
-  it("equals", () => {
-    // equals
+  it("should do nothing with empty input", () => {
+    cy.pressButton("=");
+    cy.checkDisplayEmpty();
+
+    cy.pressButton("=");
+    cy.checkDisplayEmpty();
+
+    cy.pressButton("=");
+    cy.checkDisplayEmpty();
+  });
+
+  it("should do nothing with only an operation as input", () => {
+    cy.pressButton("+");
+    cy.checkDisplayEmpty();
+
+    cy.pressButton("=");
+    cy.checkDisplayEmpty();
+
+    cy.pressButton("=");
+    cy.checkDisplayEmpty();
+  });
+
+  it("should do nothing with only an operand as input", () => {
+    cy.pressButton("1");
+    cy.checkDisplay("1");
+
+    cy.pressButton("=");
+    cy.checkDisplay("1");
+
+    cy.pressButton("=");
+    cy.checkDisplay("1");
   });
 });
