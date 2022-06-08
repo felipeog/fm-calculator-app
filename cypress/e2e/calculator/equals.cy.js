@@ -41,4 +41,76 @@ describe("equals", () => {
     cy.pressButton("=");
     cy.checkDisplay("1");
   });
+
+  it("should repeat last operation with last operand, operand/operation as input", () => {
+    cy.pressButton("1");
+    cy.checkDisplay("1");
+
+    cy.pressButton("+");
+    cy.checkDisplay("1");
+
+    cy.pressButton("=");
+    cy.checkDisplay("2");
+
+    cy.pressButton("=");
+    cy.checkDisplay("3");
+
+    cy.pressButton("=");
+    cy.checkDisplay("4");
+  });
+
+  it("should repeat last operation with last operand, operation/operand as input", () => {
+    cy.pressButton("+");
+    cy.checkDisplay("");
+
+    cy.pressButton("1");
+    cy.checkDisplay("1");
+
+    cy.pressButton("=");
+    cy.checkDisplay("1");
+
+    cy.pressButton("=");
+    cy.checkDisplay("2");
+
+    cy.pressButton("=");
+    cy.checkDisplay("3");
+  });
+
+  it("should repeat last operation with last operand, operand/operation/operand as input", () => {
+    cy.pressButton("1");
+    cy.checkDisplay("1");
+
+    cy.pressButton("+");
+    cy.checkDisplay("1");
+
+    cy.pressButton("1");
+    cy.checkDisplay("1");
+
+    cy.pressButton("=");
+    cy.checkDisplay("2");
+
+    cy.pressButton("=");
+    cy.checkDisplay("3");
+
+    cy.pressButton("=");
+    cy.checkDisplay("4");
+  });
+
+  // FIXME: returns 5, should be 6
+  it.skip("should repeat last operation with last operand, operand/operation/operand/operation as input", () => {
+    cy.pressButton("1");
+    cy.checkDisplay("1");
+
+    cy.pressButton("+");
+    cy.checkDisplay("1");
+
+    cy.pressButton("2");
+    cy.checkDisplay("2");
+
+    cy.pressButton("+");
+    cy.checkDisplay("3");
+
+    cy.pressButton("=");
+    cy.checkDisplay("6");
+  });
 });
