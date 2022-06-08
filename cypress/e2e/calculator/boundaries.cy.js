@@ -55,19 +55,4 @@ describe("boundaries", () => {
     cy.pressButton("1");
     cy.checkDisplay("999,999,999");
   });
-
-  it("should not surpass decimal precision", () => {
-    cy.pressButton(".");
-    cy.pressButton("1");
-    cy.pressButton("2");
-    cy.pressButton("3");
-    cy.pressButton("4");
-    cy.checkDisplay("0.1234");
-
-    cy.pressButton("5");
-    cy.checkDisplay("0.1234");
-
-    cy.pressButton("6");
-    cy.checkDisplay("0.1234");
-  });
 });
