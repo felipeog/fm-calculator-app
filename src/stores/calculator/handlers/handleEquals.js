@@ -17,14 +17,18 @@ export function handleEquals({
     return;
   }
 
+  const defaultProperties = {
+    isReadingValue: false,
+    fromEquals: true,
+    currentValue: "",
+    previousOperation: operation,
+    currentOperation: "",
+  };
+
   if (previousValue.length && currentValue.length) {
     return {
-      isReadingValue: false,
-      fromEquals: true,
+      ...defaultProperties,
       previousValue: currentValue,
-      currentValue: "",
-      previousOperation: operation,
-      currentOperation: "",
       result: applyOperation({
         left: Number(fromEquals ? previousValue : result),
         operation,
@@ -33,19 +37,15 @@ export function handleEquals({
     };
   }
 
-  const value = currentValue || previousValue || result;
+  const newPreviousValue = currentValue || previousValue || result;
 
   return {
-    isReadingValue: false,
-    fromEquals: true,
-    previousValue: value,
-    currentValue: "",
-    previousOperation: operation,
-    currentOperation: "",
+    ...defaultProperties,
+    previousValue: newPreviousValue,
     result: applyOperation({
       left: Number(result || "0"),
       operation,
-      right: Number(value),
+      right: Number(newPreviousValue),
     }),
   };
 }

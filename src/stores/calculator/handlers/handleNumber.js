@@ -6,26 +6,33 @@ import { decimalPrecision } from "../../../consts/decimalPrecision";
 export function handleNumber({ currentValue }, input) {
   logArguments("handleNumber", arguments);
 
-  const value = currentValue === "0" ? input : `${currentValue}${input}`;
+  const newCurrentValue =
+    currentValue === "0" ? input : `${currentValue}${input}`;
+  const defaultProperties = {
+    isReadingValue: true,
+  };
 
-  if (big(value).gte(boundaries.upper) || big(value).lte(boundaries.lower)) {
+  if (
+    big(newCurrentValue).gte(boundaries.upper) ||
+    big(newCurrentValue).lte(boundaries.lower)
+  ) {
     return {
-      isReadingValue: true,
+      ...defaultProperties,
       currentValue: currentValue,
     };
   }
 
-  if (value.includes(".")) {
-    const [integer, decimals] = value.split(".");
+  if (newCurrentValue.includes(".")) {
+    const [integer, decimals] = newCurrentValue.split(".");
 
     return {
-      isReadingValue: true,
+      ...defaultProperties,
       currentValue: `${integer}.${decimals.slice(0, decimalPrecision)}`,
     };
   }
 
   return {
-    isReadingValue: true,
-    currentValue: value,
+    ...defaultProperties,
+    currentValue: newCurrentValue,
   };
 }

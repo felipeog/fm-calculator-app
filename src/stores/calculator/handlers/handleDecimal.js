@@ -3,22 +3,26 @@ import { logArguments } from "../utils/logArguments";
 export function handleDecimal({ currentValue }) {
   logArguments("handleDecimal", arguments);
 
+  const defaultProperties = {
+    isReadingValue: true,
+  };
+
   if (!currentValue.length) {
     return {
-      isReadingValue: true,
+      ...defaultProperties,
       currentValue: "0.",
     };
   }
 
   if (currentValue.includes(".")) {
     return {
-      isReadingValue: true,
+      ...defaultProperties,
       currentValue: currentValue,
     };
   }
 
   return {
-    isReadingValue: true,
+    ...defaultProperties,
     currentValue: `${currentValue}.`,
   };
 }

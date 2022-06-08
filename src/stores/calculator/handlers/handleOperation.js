@@ -8,15 +8,18 @@ export function handleOperation(
   logArguments("handleOperation", arguments);
 
   const operation = currentOperation || input;
+  const defaultProperties = {
+    isReadingValue: false,
+    fromEquals: false,
+    previousOperation: currentOperation,
+    currentOperation: input,
+  };
 
   if (fromEquals) {
     return {
-      isReadingValue: false,
-      fromEquals: false,
-      previousOperation: currentOperation,
-      currentOperation: input,
-      previousValue: currentValue,
+      ...defaultProperties,
       currentValue: "",
+      previousValue: currentValue,
       result: currentValue || result,
     };
   }
@@ -25,12 +28,9 @@ export function handleOperation(
     const isNegative = currentOperation === "-";
 
     return {
-      isReadingValue: false,
-      fromEquals: false,
-      previousValue: currentValue,
+      ...defaultProperties,
       currentValue: "",
-      previousOperation: currentOperation,
-      currentOperation: input,
+      previousValue: currentValue,
       result: result.length
         ? applyOperation({
             left: Number(result),
@@ -41,10 +41,5 @@ export function handleOperation(
     };
   }
 
-  return {
-    isReadingValue: false,
-    fromEquals: false,
-    previousOperation: currentOperation,
-    currentOperation: input,
-  };
+  return defaultProperties;
 }
