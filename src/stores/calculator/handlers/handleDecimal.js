@@ -13,6 +13,7 @@ export function handleDecimal({ currentValue }) {
   if (currentValue.includes(".")) {
     return {
       isReadingValue: true,
+      currentValue: currentValue,
     };
   }
 

@@ -30,7 +30,7 @@ function handleKeyboardInput(input) {
   setCalculator((prevCalculator) => {
     switch (input) {
       case "del":
-        return handleDelete(calculator.isReadingValue, prevCalculator);
+        return handleDelete(prevCalculator, calculator.isReadingValue);
 
       case ".":
         return handleDecimal(prevCalculator);
@@ -45,7 +45,7 @@ function handleKeyboardInput(input) {
       case "-":
       case "/":
       case "x":
-        return handleOperation(input, prevCalculator);
+        return handleOperation(prevCalculator, input);
 
       case "0":
       case "1":
@@ -57,7 +57,7 @@ function handleKeyboardInput(input) {
       case "7":
       case "8":
       case "9":
-        return handleNumber(input, prevCalculator);
+        return handleNumber(prevCalculator, input);
 
       default:
         return prevCalculator;

@@ -18,26 +18,22 @@ export function handleEquals({
   }
 
   if (previousValue.length && currentValue.length) {
-    const right = Number(currentValue);
-
     return {
       isReadingValue: false,
       fromEquals: true,
-      previousValue: String(right),
+      previousValue: currentValue,
       currentValue: "",
       previousOperation: operation,
       currentOperation: "",
       result: applyOperation({
         left: Number(fromEquals ? previousValue : result),
         operation,
-        right,
+        right: Number(currentValue),
       }),
     };
   }
 
   const value = currentValue || previousValue || result;
-  const left = Number(result || "0");
-  const right = Number(value);
 
   return {
     isReadingValue: false,
@@ -47,9 +43,9 @@ export function handleEquals({
     previousOperation: operation,
     currentOperation: "",
     result: applyOperation({
-      left,
+      left: Number(result || "0"),
       operation,
-      right,
+      right: Number(value),
     }),
   };
 }

@@ -3,7 +3,7 @@ import { logArguments } from "../utils/logArguments";
 import { boundaries } from "../../../consts/boundaries";
 import { decimalPrecision } from "../../../consts/decimalPrecision";
 
-export function handleNumber(input, { currentValue }) {
+export function handleNumber({ currentValue }, input) {
   logArguments("handleNumber", arguments);
 
   const value = currentValue === "0" ? input : `${currentValue}${input}`;

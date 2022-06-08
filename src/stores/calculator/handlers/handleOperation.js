@@ -2,8 +2,8 @@ import { logArguments } from "../utils/logArguments";
 import { applyOperation } from "../utils/applyOperation";
 
 export function handleOperation(
-  input,
-  { currentValue, currentOperation, result, fromEquals }
+  { currentValue, currentOperation, result, fromEquals },
+  input
 ) {
   logArguments("handleOperation", arguments);
 
@@ -23,7 +23,6 @@ export function handleOperation(
 
   if (currentValue.length) {
     const isNegative = currentOperation === "-";
-    const left = Number(result);
 
     return {
       isReadingValue: false,
@@ -34,7 +33,7 @@ export function handleOperation(
       currentOperation: input,
       result: result.length
         ? applyOperation({
-            left,
+            left: Number(result),
             operation: operation,
             right: Number(currentValue),
           })
