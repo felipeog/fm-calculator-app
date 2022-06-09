@@ -96,8 +96,7 @@ describe("equals", () => {
     cy.checkDisplay("4");
   });
 
-  // FIXME: returns 5, should be 6
-  it.skip("should repeat last operation with last operand, operand/operation/operand/operation as input", () => {
+  it("should repeat last operation with last operand, operand/operation/operand/operation as input", () => {
     cy.pressButton("1");
     cy.checkDisplay("1");
 
