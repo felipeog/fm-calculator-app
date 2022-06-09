@@ -1,5 +1,4 @@
-import ThemeSelector from "../ThemeSelector";
-
+import { ThemeSelector } from "../ThemeSelector";
 import "./index.css";
 
 function Header() {
@@ -12,4 +11,4 @@ function Header() {
   );
 }
 
-export default Header;
+export { Header };

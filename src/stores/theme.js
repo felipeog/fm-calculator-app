@@ -1,7 +1,7 @@
 import { createEffect } from "solid-js";
 import { createStore } from "solid-js/store";
 
-import themes, { defaultTheme } from "../consts/themes";
+import { themes, defaultTheme } from "../consts/themes";
 
 const themeLsKey = "calculator-app/theme";
 
@@ -14,11 +14,11 @@ createEffect(() => {
   document.querySelector("html").setAttribute("data-theme", theme.name);
 });
 
-export function getCurrentThemeIndex() {
+function getCurrentThemeIndex() {
   return themes.indexOf(theme.name);
 }
 
-export function setThemeByIndex(index) {
+function setThemeByIndex(index) {
   setTheme(() => {
     return {
       name: themes[index],
@@ -26,4 +26,4 @@ export function setThemeByIndex(index) {
   });
 }
 
-export default theme;
+export { theme, getCurrentThemeIndex, setThemeByIndex };

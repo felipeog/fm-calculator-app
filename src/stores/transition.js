@@ -1,7 +1,7 @@
 import { createEffect } from "solid-js";
 import { createStore } from "solid-js/store";
 
-import calculator from "../stores/calculator";
+import { calculator } from "../stores/calculator";
 
 const transitionButtons = ["-", "x", "/", "+", "="];
 
@@ -17,7 +17,7 @@ createEffect((prev) => {
   return calculator.isReadingValue;
 });
 
-export function triggerDisplayTransition() {
+function triggerDisplayTransition() {
   setTransition({
     isTransitioning: true,
   });
@@ -29,10 +29,10 @@ export function triggerDisplayTransition() {
   }, 100);
 }
 
-export function handleDisplayTransition(input) {
+function handleDisplayTransition(input) {
   if (transitionButtons.includes(input)) {
     triggerDisplayTransition();
   }
 }
 
-export default transition;
+export { transition, triggerDisplayTransition, handleDisplayTransition };

@@ -1,6 +1,5 @@
-import calculator from "../../stores/calculator";
-import transition from "../../stores/transition";
-
+import { calculator } from "../../stores/calculator";
+import { transition } from "../../stores/transition";
 import "./index.css";
 
 function Display() {
@@ -27,12 +26,12 @@ function Display() {
   };
 
   return (
-    <div class="Display">
+    <section class="Display">
       <p class="Display__content">
         {transition.isTransitioning ? null : getDisplayContent()}
       </p>
-    </div>
+    </section>
   );
 }
 
-export default Display;
+export { Display };

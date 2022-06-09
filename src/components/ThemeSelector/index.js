@@ -1,6 +1,5 @@
-import themes from "../../consts/themes";
+import { themes } from "../../consts/themes";
 import { getCurrentThemeIndex, setThemeByIndex } from "../../stores/theme";
-
 import "./index.css";
 
 function ThemeSelector() {
@@ -42,4 +41,4 @@ function ThemeSelector() {
   );
 }
 
-export default ThemeSelector;
+export { ThemeSelector };
