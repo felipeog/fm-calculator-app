@@ -37,11 +37,10 @@ export function applyOperation({ left, operation, right }) {
     }
 
     if (result.toString().includes(".")) {
-      const [_, decimals] = result.toString().split(".");
+      const resultFixedPrecision = result.toFixed(decimalPrecision);
+      const resultWithoutTrailingZeros = String(Number(resultFixedPrecision));
 
-      return decimals.length > 4
-        ? result.toFixed(decimalPrecision).toString()
-        : result.toString();
+      return resultWithoutTrailingZeros;
     }
 
     return result.toString();

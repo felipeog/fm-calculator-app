@@ -78,7 +78,7 @@ describe("decimals", () => {
     cy.checkDisplay("0.6");
   });
 
-  it("should not surpass decimal precision", () => {
+  it("should not surpass decimal precision on input", () => {
     cy.pressButton(".");
     cy.checkDisplay("0.");
 
@@ -99,5 +99,34 @@ describe("decimals", () => {
 
     cy.pressButton("6");
     cy.checkDisplay("0.1234");
+  });
+
+  it("should not surpass decimal precision on operation", () => {
+    cy.pressButton(".");
+    cy.checkDisplay("0.");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0.0");
+
+    cy.pressButton("4");
+    cy.checkDisplay("0.04");
+
+    cy.pressButton("x");
+    cy.checkDisplay("0.04");
+
+    cy.pressButton(".");
+    cy.checkDisplay("0.");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0.0");
+
+    cy.pressButton("0");
+    cy.checkDisplay("0.00");
+
+    cy.pressButton("4");
+    cy.checkDisplay("0.004");
+
+    cy.pressButton("=");
+    cy.checkDisplay("0.0002");
   });
 });
