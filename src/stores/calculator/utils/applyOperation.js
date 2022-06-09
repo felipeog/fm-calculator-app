@@ -4,7 +4,7 @@ import { boundaries } from "../../../consts/boundaries";
 import { decimalPrecision } from "../../../consts/decimalPrecision";
 
 // https://www.avioconsulting.com/blog/overcoming-javascript-numeric-precision-issues
-export function applyOperation({ left, operation, right }) {
+function applyOperation({ left, operation, right }) {
   logArguments("applyOperation", arguments);
 
   try {
@@ -53,3 +53,5 @@ export function applyOperation({ left, operation, right }) {
     return "";
   }
 }
+
+export { applyOperation };

@@ -1,7 +1,7 @@
 import { logArguments } from "../utils/logArguments";
 import { applyOperation } from "../utils/applyOperation";
 
-export function handleOperation(
+function handleOperation(
   { previousValue, currentValue, currentOperation, result, fromEquals },
   input
 ) {
@@ -46,3 +46,5 @@ export function handleOperation(
     result: newResult,
   };
 }
+
+export { handleOperation };

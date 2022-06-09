@@ -1,6 +1,6 @@
 import { logArguments } from "../utils/logArguments";
 
-export function handleReset() {
+function handleReset() {
   logArguments("handleReset", arguments);
 
   return {
@@ -13,3 +13,5 @@ export function handleReset() {
     fromEquals: false,
   };
 }
+
+export { handleReset };

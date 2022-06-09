@@ -1,7 +1,7 @@
 import { logArguments } from "../utils/logArguments";
 import { applyOperation } from "../utils/applyOperation";
 
-export function handleEquals({
+function handleEquals({
   currentValue,
   previousValue,
   currentOperation,
@@ -49,3 +49,5 @@ export function handleEquals({
     }),
   };
 }
+
+export { handleEquals };

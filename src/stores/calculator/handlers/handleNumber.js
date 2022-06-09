@@ -3,7 +3,7 @@ import { logArguments } from "../utils/logArguments";
 import { boundaries } from "../../../consts/boundaries";
 import { decimalPrecision } from "../../../consts/decimalPrecision";
 
-export function handleNumber({ currentValue }, input) {
+function handleNumber({ currentValue }, input) {
   logArguments("handleNumber", arguments);
 
   const newCurrentValue =
@@ -36,3 +36,5 @@ export function handleNumber({ currentValue }, input) {
     currentValue: newCurrentValue,
   };
 }
+
+export { handleNumber };

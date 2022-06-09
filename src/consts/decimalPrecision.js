@@ -1,1 +1,3 @@
-export const decimalPrecision = 4;
+const decimalPrecision = 4;
+
+export { decimalPrecision };

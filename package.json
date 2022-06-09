@@ -10,14 +10,14 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },
+  "dependencies": {
+    "big.js": "^6.2.0",
+    "classnames": "^2.3.1"
+  },
   "devDependencies": {
     "cypress": "^10.0.2",
     "solid-js": "^1.4.3",
     "solid-scripts": "0.0.61"
-  },
-  "dependencies": {
-    "big.js": "^6.2.0",
-    "classnames": "^2.3.1"
   },
   "browserslist": [
     "Chrome 74",

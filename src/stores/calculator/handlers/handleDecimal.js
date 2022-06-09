@@ -1,6 +1,6 @@
 import { logArguments } from "../utils/logArguments";
 
-export function handleDecimal({ currentValue }) {
+function handleDecimal({ currentValue }) {
   logArguments("handleDecimal", arguments);
 
   const defaultProperties = {
@@ -26,3 +26,5 @@ export function handleDecimal({ currentValue }) {
     currentValue: `${currentValue}.`,
   };
 }
+
+export { handleDecimal };
