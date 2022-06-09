@@ -1,6 +1,6 @@
 import { For } from "solid-js";
 
-import Button from "../Button";
+import { Button } from "../Button";
 import { handleKeyboardInput } from "../../stores/calculator";
 import { handleDisplayTransition } from "../../stores/transition";
 import "./index.css";
@@ -55,4 +55,4 @@ function Keyboard() {
   );
 }
 
-export default Keyboard;
+export { Keyboard };

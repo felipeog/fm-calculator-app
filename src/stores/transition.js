@@ -1,5 +1,6 @@
 import { createEffect } from "solid-js";
 import { createStore } from "solid-js/store";
+
 import { calculator } from "../stores/calculator";
 
 const transitionButtons = ["-", "x", "/", "+", "="];

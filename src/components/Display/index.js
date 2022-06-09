@@ -1,6 +1,5 @@
 import { calculator } from "../../stores/calculator";
 import { transition } from "../../stores/transition";
-
 import "./index.css";
 
 function Display() {
@@ -35,4 +34,4 @@ function Display() {
   );
 }
 
-export default Display;
+export { Display };

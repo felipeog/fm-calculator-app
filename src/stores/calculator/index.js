@@ -1,4 +1,5 @@
 import { createStore } from "solid-js/store";
+
 import { logArguments } from "./utils/logArguments";
 import { handleDelete } from "./handlers/handleDelete";
 import { handleDecimal } from "./handlers/handleDecimal";

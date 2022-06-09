@@ -1,6 +1,6 @@
-import Header from "./components/Header";
-import Display from "./components/Display";
-import Keyboard from "./components/Keyboard";
+import { Header } from "./components/Header";
+import { Display } from "./components/Display";
+import { Keyboard } from "./components/Keyboard";
 
 function App() {
   return (
@@ -14,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };

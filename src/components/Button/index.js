@@ -10,4 +10,4 @@ function Button({ handler, value, className }) {
   );
 }
 
-export default Button;
+export { Button };
