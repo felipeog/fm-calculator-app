@@ -13,3 +13,9 @@
   padding-top: 0.6rem;
   font-size: 3.6rem;
 }
+
+@media screen and (max-width: 545px) {
+  .Display__content {
+    font-size: 2.6rem;
+  }
+}

@@ -25,3 +25,9 @@ body {
   width: 540px;
   min-width: 375px;
 }
+
+@media screen and (max-width: 545px) {
+  .App-container {
+    width: 375px;
+  }
+}
