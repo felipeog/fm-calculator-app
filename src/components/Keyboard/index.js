@@ -19,6 +19,10 @@ function Keyboard() {
     handleKeyboardInput(input);
   }
 
+  document.addEventListener("keydown", (event) => {
+    handleButtonClick(event.key);
+  });
+
   const topButtons = [
     { value: "7", className: "Keyboard__default-button" },
     { value: "8", className: "Keyboard__default-button" },

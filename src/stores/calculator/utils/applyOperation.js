@@ -21,6 +21,7 @@ function applyOperation({ left, operation, right }) {
         break;
 
       case "x":
+      case "*":
         result = big(left).times(big(right));
         break;
 

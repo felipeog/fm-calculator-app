@@ -31,12 +31,15 @@ function handleKeyboardInput(input) {
   setCalculator((prevCalculator) => {
     switch (input) {
       case "del":
+      case "Delete":
+      case "Backspace":
         return handleDelete(prevCalculator, calculator.isReadingValue);
 
       case ".":
         return handleDecimal(prevCalculator);
 
       case "reset":
+      case "r":
         return handleReset();
 
       case "=":
@@ -46,6 +49,7 @@ function handleKeyboardInput(input) {
       case "-":
       case "/":
       case "x":
+      case "*":
         return handleOperation(prevCalculator, input);
 
       case "0":
