@@ -49,7 +49,6 @@ function handleKeyboardInput(input) {
       case "-":
       case "/":
       case "x":
-      case "*":
         return handleOperation(prevCalculator, input);
 
       case "0":

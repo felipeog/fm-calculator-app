@@ -1,85 +1,85 @@
 html[data-theme="theme_1"] {
   /* general */
-  --app_background: hsl(222, 26%, 31%);
-  --app_text_color: hsl(0, 0%, 100%);
+  --app_background: #3a4764;
+  --app_text_color: #ffffff;
 
   /* toggle */
-  --toggle_background: hsl(223, 31%, 20%);
-  --toggle_key: hsl(6, 63%, 50%);
+  --toggle_background: #232c43;
+  --toggle_key: #d03f2f;
 
   /* display */
-  --display_background: hsl(224, 36%, 15%);
+  --display_background: #182034;
 
   /* keyboard */
-  --keyboard_background: hsl(223, 31%, 20%);
+  --keyboard_background: #232c43;
 
-  --key_text_color: hsl(221, 14%, 31%);
-  --key_background: hsl(30, 25%, 89%);
-  --key_shadow: hsl(28, 16%, 65%);
+  --key_text_color: #444b5a;
+  --key_background: #eae3dc;
+  --key_shadow: #b4a597;
 
-  --action_key_text_color: hsl(0, 0%, 100%);
-  --action_key_background: hsl(225, 21%, 49%);
-  --action_key_shadow: hsl(224, 28%, 35%);
+  --action_key_text_color: #ffffff;
+  --action_key_background: #637097;
+  --action_key_shadow: #404e72;
 
-  --equals_key_text_color: hsl(0, 0%, 100%);
-  --equals_key_background: hsl(6, 63%, 50%);
-  --equals_key_shadow: hsl(6, 70%, 34%);
+  --equals_key_text_color: #ffffff;
+  --equals_key_background: #d03f2f;
+  --equals_key_shadow: #93261a;
 }
 
 html[data-theme="theme_2"] {
   /* general */
-  --app_background: hsl(0, 0%, 90%);
-  --app_text_color: hsl(60, 10%, 19%);
+  --app_background: #e6e6e6;
+  --app_text_color: #35352c;
 
   /* toggle */
-  --toggle_background: hsl(0, 5%, 81%);
-  --toggle_key: hsl(25, 98%, 40%);
+  --toggle_background: #d1cccc;
+  --toggle_key: #ca5502;
 
   /* display */
-  --display_background: hsl(0, 0%, 93%);
+  --display_background: #ededed;
 
   /* keyboard */
-  --keyboard_background: hsl(0, 5%, 81%);
+  --keyboard_background: #d1cccc;
 
-  --key_text_color: hsl(60, 10%, 19%);
-  --key_background: hsl(45, 7%, 89%);
-  --key_shadow: hsl(35, 11%, 61%);
+  --key_text_color: #35352c;
+  --key_background: #e5e4e1;
+  --key_shadow: #a69d91;
 
-  --action_key_text_color: hsl(0, 0%, 100%);
-  --action_key_background: hsl(185, 42%, 37%);
-  --action_key_shadow: hsl(185, 58%, 25%);
+  --action_key_text_color: #ffffff;
+  --action_key_background: #377f86;
+  --action_key_shadow: #1b5f65;
 
-  --equals_key_text_color: hsl(0, 0%, 100%);
-  --equals_key_background: hsl(25, 98%, 40%);
-  --equals_key_shadow: hsl(25, 99%, 27%);
+  --equals_key_text_color: #ffffff;
+  --equals_key_background: #ca5502;
+  --equals_key_shadow: #893901;
 }
 
 html[data-theme="theme_3"] {
   /* general */
-  --app_background: hsl(268, 75%, 9%);
-  --app_text_color: hsl(52, 100%, 62%);
+  --app_background: #160628;
+  --app_text_color: #ffe53d;
 
   /* toggle */
-  --toggle_background: hsl(268, 71%, 12%);
-  --toggle_key: hsl(176, 100%, 44%);
+  --toggle_background: #1d0934;
+  --toggle_key: #00e0d1;
 
   /* display */
-  --display_background: hsl(268, 71%, 12%);
+  --display_background: #1d0934;
 
   /* keyboard */
-  --keyboard_background: hsl(268, 71%, 12%);
+  --keyboard_background: #1d0934;
 
-  --key_text_color: hsl(52, 100%, 62%);
-  --key_background: hsl(268, 47%, 21%);
-  --key_shadow: hsl(290, 70%, 36%);
+  --key_text_color: #ffe53d;
+  --key_background: #341c4f;
+  --key_shadow: #871c9c;
 
-  --action_key_text_color: hsl(0, 0%, 100%);
-  --action_key_background: hsl(281, 89%, 26%);
-  --action_key_shadow: hsl(285, 91%, 52%);
+  --action_key_text_color: #ffffff;
+  --action_key_background: #58077d;
+  --action_key_shadow: #bc15f4;
 
-  --equals_key_text_color: hsl(198, 20%, 13%);
-  --equals_key_background: hsl(176, 100%, 44%);
-  --equals_key_shadow: hsl(177, 92%, 70%);
+  --equals_key_text_color: #1b2428;
+  --equals_key_background: #00e0d1;
+  --equals_key_shadow: #6cf9f2;
 }
 
 html {

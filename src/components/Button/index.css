@@ -17,3 +17,8 @@
 .Button:hover {
   filter: brightness(120%);
 }
+
+.Button:active,
+.Button.Button--active {
+  filter: brightness(80%);
+}
