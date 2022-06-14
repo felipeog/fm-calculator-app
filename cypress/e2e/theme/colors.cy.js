@@ -2,60 +2,201 @@
 
 const theme1 = {
   name: "theme_1",
-  index: 0,
-  appBackground: "#3a4764",
-  appTextColor: "#ffffff",
-  toggleBackground: "#232c43",
-  toggleKey: "#d03f2f",
-  displayBackground: "#182034",
-  keyboardBackground: "#232c43",
-  keyTextColor: "#444b5a",
-  keyBackground: "#eae3dc",
-  keyShadow: "#b4a597",
-  actionKeyTextColor: "#ffffff",
-  actionKeyBackground: "#637097",
-  actionKeyShadow: "#404e72",
-  equalsKeyTextColor: "#ffffff",
-  equalsKeyBackground: "#d03f2f",
-  equalsKeyShadow: "#93261a",
+  rangeValue: 0,
+  variables: [
+    {
+      name: "--app_background",
+      value: "#3a4764",
+    },
+    {
+      name: "--app_text_color",
+      value: "#ffffff",
+    },
+    {
+      name: "--toggle_background",
+      value: "#232c43",
+    },
+    {
+      name: "--toggle_key",
+      value: "#d03f2f",
+    },
+    {
+      name: "--display_background",
+      value: "#182034",
+    },
+    {
+      name: "--keyboard_background",
+      value: "#232c43",
+    },
+    {
+      name: "--key_text_color",
+      value: "#444b5a",
+    },
+    {
+      name: "--key_background",
+      value: "#eae3dc",
+    },
+    {
+      name: "--key_shadow",
+      value: "#b4a597",
+    },
+    {
+      name: "--action_key_text_color",
+      value: "#ffffff",
+    },
+    {
+      name: "--action_key_background",
+      value: "#637097",
+    },
+    {
+      name: "--action_key_shadow",
+      value: "#404e72",
+    },
+    {
+      name: "--equals_key_text_color",
+      value: "#ffffff",
+    },
+    {
+      name: "--equals_key_background",
+      value: "#d03f2f",
+    },
+    {
+      name: "--equals_key_shadow",
+      value: "#93261a",
+    },
+  ],
 };
 const theme2 = {
   name: "theme_2",
-  index: 1,
-  appBackground: "#e6e6e6",
-  appTextColor: "#35352c",
-  toggleBackground: "#d1cccc",
-  toggleKey: "#ca5502",
-  displayBackground: "#ededed",
-  keyboardBackground: "#d1cccc",
-  keyTextColor: "#35352c",
-  keyBackground: "#e5e4e1",
-  keyShadow: "#a69d91",
-  actionKeyTextColor: "#ffffff",
-  actionKeyBackground: "#377f86",
-  actionKeyShadow: "#1b5f65",
-  equalsKeyTextColor: "#ffffff",
-  equalsKeyBackground: "#ca5502",
-  equalsKeyShadow: "#893901",
+  rangeValue: 1,
+  variables: [
+    {
+      name: "--app_background",
+      value: "#e6e6e6",
+    },
+    {
+      name: "--app_text_color",
+      value: "#35352c",
+    },
+    {
+      name: "--toggle_background",
+      value: "#d1cccc",
+    },
+    {
+      name: "--toggle_key",
+      value: "#ca5502",
+    },
+    {
+      name: "--display_background",
+      value: "#ededed",
+    },
+    {
+      name: "--keyboard_background",
+      value: "#d1cccc",
+    },
+    {
+      name: "--key_text_color",
+      value: "#35352c",
+    },
+    {
+      name: "--key_background",
+      value: "#e5e4e1",
+    },
+    {
+      name: "--key_shadow",
+      value: "#a69d91",
+    },
+    {
+      name: "--action_key_text_color",
+      value: "#ffffff",
+    },
+    {
+      name: "--action_key_background",
+      value: "#377f86",
+    },
+    {
+      name: "--action_key_shadow",
+      value: "#1b5f65",
+    },
+    {
+      name: "--equals_key_text_color",
+      value: "#ffffff",
+    },
+    {
+      name: "--equals_key_background",
+      value: "#ca5502",
+    },
+    {
+      name: "--equals_key_shadow",
+      value: "#893901",
+    },
+  ],
 };
 const theme3 = {
   name: "theme_3",
-  index: 2,
-  appBackground: "#160628",
-  appTextColor: "#ffe53d",
-  toggleBackground: "#1d0934",
-  toggleKey: "#00e0d1",
-  displayBackground: "#1d0934",
-  keyboardBackground: "#1d0934",
-  keyTextColor: "#ffe53d",
-  keyBackground: "#341c4f",
-  keyShadow: "#871c9c",
-  actionKeyTextColor: "#ffffff",
-  actionKeyBackground: "#58077d",
-  actionKeyShadow: "#bc15f4",
-  equalsKeyTextColor: "#1b2428",
-  equalsKeyBackground: "#00e0d1",
-  equalsKeyShadow: "#6cf9f2",
+  rangeValue: 2,
+  variables: [
+    {
+      name: "--app_background",
+      value: "#160628",
+    },
+    {
+      name: "--app_text_color",
+      value: "#ffe53d",
+    },
+    {
+      name: "--toggle_background",
+      value: "#1d0934",
+    },
+    {
+      name: "--toggle_key",
+      value: "#00e0d1",
+    },
+    {
+      name: "--display_background",
+      value: "#1d0934",
+    },
+    {
+      name: "--keyboard_background",
+      value: "#1d0934",
+    },
+    {
+      name: "--key_text_color",
+      value: "#ffe53d",
+    },
+    {
+      name: "--key_background",
+      value: "#341c4f",
+    },
+    {
+      name: "--key_shadow",
+      value: "#871c9c",
+    },
+    {
+      name: "--action_key_text_color",
+      value: "#ffffff",
+    },
+    {
+      name: "--action_key_background",
+      value: "#58077d",
+    },
+    {
+      name: "--action_key_shadow",
+      value: "#bc15f4",
+    },
+    {
+      name: "--equals_key_text_color",
+      value: "#1b2428",
+    },
+    {
+      name: "--equals_key_background",
+      value: "#00e0d1",
+    },
+    {
+      name: "--equals_key_shadow",
+      value: "#6cf9f2",
+    },
+  ],
 };
 const themes = [theme1, theme2, theme3];
 
@@ -65,62 +206,21 @@ describe("colors", () => {
   });
 
   themes.forEach((theme) => {
-    it(`should render ${theme.name} colors`, () => {
+    it(`should have ${theme.name} CSS variables`, () => {
       cy.get(".ThemeSelector__toggle input")
-        .invoke("val", theme.index)
+        .invoke("val", theme.rangeValue)
         .trigger("change");
 
-      cy.get(".App")
-        .should("have.css", "background-color")
-        .and("be.colored", theme.appBackground);
+      cy.get("html").then((jQueryElement) => {
+        const html = jQueryElement.get(0);
+        const htmlStyle = getComputedStyle(html);
 
-      cy.get("body")
-        .should("have.css", "color")
-        .and("be.colored", theme.appTextColor);
+        theme.variables.forEach((variable) => {
+          const current = htmlStyle.getPropertyValue(variable.name);
 
-      /* TODO: check how to do
-      cy.get(".ThemeSelector__range::-webkit-slider-runnable-track")
-        .should("have.css", "background")
-        .and("be.colored", theme.toggleBackground);
-      cy.get(".ThemeSelector__range::-webkit-slider-thumb")
-        .should("have.css", "color")
-        .and("be.colored", theme.toggleKey);
-      */
-
-      cy.get(".Display")
-        .should("have.css", "background-color")
-        .and("be.colored", theme.displayBackground);
-
-      cy.get(".Keyboard")
-        .should("have.css", "background-color")
-        .and("be.colored", theme.keyboardBackground);
-      cy.get(".Keyboard__default-button")
-        .should("have.css", "color")
-        .and("be.colored", theme.keyTextColor);
-      cy.get(".Keyboard__default-button")
-        .should("have.css", "background-color")
-        .and("be.colored", theme.keyBackground);
-      cy.get(".Keyboard__default-button")
-        .should("have.css", "border-color")
-        .and("be.colored", theme.keyShadow);
-      cy.get(".Keyboard__action-button")
-        .should("have.css", "color")
-        .and("be.colored", theme.actionKeyTextColor);
-      cy.get(".Keyboard__action-button")
-        .should("have.css", "background-color")
-        .and("be.colored", theme.actionKeyBackground);
-      cy.get(".Keyboard__action-button")
-        .should("have.css", "border-color")
-        .and("be.colored", theme.actionKeyShadow);
-      cy.get(".Keyboard__equals-button")
-        .should("have.css", "color")
-        .and("be.colored", theme.equalsKeyTextColor);
-      cy.get(".Keyboard__equals-button")
-        .should("have.css", "background-color")
-        .and("be.colored", theme.equalsKeyBackground);
-      cy.get(".Keyboard__equals-button")
-        .should("have.css", "border-color")
-        .and("be.colored", theme.equalsKeyShadow);
+          expect(current).contains(variable.value);
+        });
+      });
     });
   });
 });
