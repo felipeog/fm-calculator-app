@@ -15,6 +15,7 @@
     "classnames": "^2.3.1"
   },
   "devDependencies": {
+    "chai-colors": "^1.0.1",
     "cypress": "^10.0.2",
     "solid-js": "^1.4.3",
     "solid-scripts": "0.0.61"
