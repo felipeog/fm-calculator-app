@@ -59,7 +59,7 @@ const theme3 = {
 };
 const themes = [theme1, theme2, theme3];
 
-describe("toggle", () => {
+describe("colors", () => {
   beforeEach(() => {
     cy.visit("/");
   });
