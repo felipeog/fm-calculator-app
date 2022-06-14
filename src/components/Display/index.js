@@ -1,5 +1,7 @@
+import { createEffect } from "solid-js";
+
 import { calculator } from "../../stores/calculator";
-import { transition } from "../../stores/transition";
+import { transition, triggerDisplayTransition } from "../../stores/transition";
 import "./index.css";
 
 function Display() {
@@ -25,10 +27,18 @@ function Display() {
     return null;
   };
 
+  createEffect((prev) => {
+    if (calculator.isReadingValue !== prev) {
+      triggerDisplayTransition();
+    }
+
+    return calculator.isReadingValue;
+  });
+
   return (
     <section class="Display">
       <p class="Display__content">
-        {transition.isTransitioning ? null : getDisplayContent()}
+        {transition.display.isTransitioning ? null : getDisplayContent()}
       </p>
     </section>
   );

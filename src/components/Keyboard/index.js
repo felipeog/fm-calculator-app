@@ -2,7 +2,10 @@ import { For } from "solid-js";
 
 import { Button } from "../Button";
 import { handleKeyboardInput } from "../../stores/calculator";
-import { handleDisplayTransition } from "../../stores/transition";
+import {
+  handleDisplayTransition,
+  handleKeyboardTransition,
+} from "../../stores/transition";
 import "./index.css";
 
 function Buttons({ buttons, handler }) {
@@ -20,30 +23,88 @@ function Keyboard() {
   }
 
   document.addEventListener("keydown", (event) => {
-    handleButtonClick(event.key);
+    const input = event.key;
+
+    handleKeyboardTransition(input);
+    handleDisplayTransition(input);
+    handleKeyboardInput(input);
   });
 
   const topButtons = [
-    { value: "7", className: "Keyboard__default-button" },
-    { value: "8", className: "Keyboard__default-button" },
-    { value: "9", className: "Keyboard__default-button" },
-    { value: "del", className: "Keyboard__action-button" },
-    { value: "4", className: "Keyboard__default-button" },
-    { value: "5", className: "Keyboard__default-button" },
-    { value: "6", className: "Keyboard__default-button" },
-    { value: "+", className: "Keyboard__default-button" },
-    { value: "1", className: "Keyboard__default-button" },
-    { value: "2", className: "Keyboard__default-button" },
-    { value: "3", className: "Keyboard__default-button" },
-    { value: "-", className: "Keyboard__default-button" },
-    { value: ".", className: "Keyboard__default-button" },
-    { value: "0", className: "Keyboard__default-button" },
-    { value: "/", className: "Keyboard__default-button" },
-    { value: "x", className: "Keyboard__default-button" },
+    {
+      value: "7",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "8",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "9",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "del",
+      className: "Keyboard__action-button",
+    },
+    {
+      value: "4",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "5",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "6",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "+",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "1",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "2",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "3",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "-",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: ".",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "0",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "/",
+      className: "Keyboard__default-button",
+    },
+    {
+      value: "x",
+      className: "Keyboard__default-button",
+    },
   ];
   const bottomButtons = [
-    { value: "reset", className: "Keyboard__action-button" },
-    { value: "=", className: "Keyboard__equals-button" },
+    {
+      value: "reset",
+      className: "Keyboard__action-button",
+    },
+    {
+      value: "=",
+      className: "Keyboard__equals-button",
+    },
   ];
 
   return (
