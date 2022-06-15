@@ -7,11 +7,61 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    continue-on-error: false
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        test:
+          [
+            "calculator/boundaries.cy.js",
+            "calculator/decimals.cy.js",
+            "calculator/delete.cy.js",
+            "calculator/equals.cy.js",
+            "calculator/errors.cy.js",
+            "calculator/multiple-operands.cy.js",
+            "calculator/one-operand.cy.js",
+            "calculator/reset.cy.js",
+            "calculator/two-operands.cy.js",
+            "calculator/zero.cy.js",
+
+            "theme/colors.cy.js",
+
+            "transition/display.cy.js",
+            "transition/keyboard.cy.js",
+          ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
         with:
-          build: npm run build
-          start: npm start
+          repository: felipeog/fm-calculator-app
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+
+      - name: Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
+          spec: cypress/e2e/${{ matrix.test }}
+# name: Test
+
+# on:
+#   pull_request:
+#     branches: [main]
+
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Cypress run
+#         uses: cypress-io/github-action@v4
+#         with:
+#           build: npm run build
+#           start: npm start
