@@ -28,9 +28,9 @@ Users should be able to:
 
 ### Screenshot
 
-| Theme1                                                                                                         | Theme 2                                                                                                        | Theme 3                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| [![calculator-theme-1.png](https://i.postimg.cc/XYxbR2XP/calculator-theme-1.png)](https://postimg.cc/fV3pXfc7) | [![calculator-theme-2.png](https://i.postimg.cc/LsXp2z18/calculator-theme-2.png)](https://postimg.cc/tsLfznkK) | [![calculator-theme-3.png](https://i.postimg.cc/MGF8Tv7b/calculator-theme-3.png)](https://postimg.cc/McVL3Zrv) |
+| Theme1                                                    | Theme 2                                                   | Theme 3                                                   |
+| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
+| ![](https://i.postimg.cc/XYxbR2XP/calculator-theme-1.png) | ![](https://i.postimg.cc/LsXp2z18/calculator-theme-2.png) | ![](https://i.postimg.cc/MGF8Tv7b/calculator-theme-3.png) |
 
 ### Links
 
