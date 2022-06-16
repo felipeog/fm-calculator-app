@@ -4,13 +4,12 @@ import { logArguments } from "./logArguments";
 import { boundaries } from "../../../consts/boundaries";
 import { decimalPrecision } from "../../../consts/decimalPrecision";
 
-// https://www.avioconsulting.com/blog/overcoming-javascript-numeric-precision-issues
 function applyOperation({ left, operation, right }) {
   logArguments("applyOperation", arguments);
 
   try {
     if (operation === "/" && right === 0) {
-      throw Error("[Error]: Division by zero");
+      throw Error("[Error] Division by zero");
     }
 
     let result;
@@ -34,7 +33,7 @@ function applyOperation({ left, operation, right }) {
     }
 
     if (result.gte(boundaries.upper) || result.lte(boundaries.lower)) {
-      throw Error("[Error]: Out of bounds");
+      throw Error("[Error] Out of bounds");
     }
 
     if (result.toString().includes(".")) {
