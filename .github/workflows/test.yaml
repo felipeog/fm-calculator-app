@@ -5,7 +5,17 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        run: |
+          npm run build
+          npm test
+
+  integration:
+    needs: unit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
