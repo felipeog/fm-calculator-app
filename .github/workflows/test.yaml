@@ -19,7 +19,7 @@ jobs:
       - name: Jest run
         run: |
           npm ci
-          npm test
+          npm run jest:ci
 
   integration:
     needs: unit
@@ -33,3 +33,4 @@ jobs:
         with:
           build: npm run build
           start: npm start
+          command: npm run cy:ci

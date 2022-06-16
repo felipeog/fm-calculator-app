@@ -5,10 +5,10 @@
   "scripts": {
     "start": "solid-scripts start",
     "build": "solid-scripts build",
-    "test": "jest",
-    "cypress": "cypress",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "jest:dev": "jest --onlyChanged --watch --verbose",
+    "jest:ci": "jest --bail --verbose",
+    "cy:dev": "cypress open",
+    "cy:ci": "cypress run"
   },
   "dependencies": {
     "big.js": "^6.2.0",
