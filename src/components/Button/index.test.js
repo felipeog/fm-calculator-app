@@ -1,43 +1,85 @@
-// import { render, fireEvent } from "solid-testing-library";
-import { render } from "solid-testing-library";
+import { render, fireEvent } from "solid-testing-library";
 
 import { Button } from "./";
+import transitionStore from "../../stores/transition";
 
-describe("<Button />", () => {
-  test("renders value", () => {
-    const { getByText, unmount } = render(() => <Button value={"aoba"} />);
+const defaultTransition = {
+  keyboard: {
+    isTransitioning: false,
+    button: "",
+  },
+};
 
-    expect(getByText("aoba")).toBeInTheDocument();
+jest.mock("../../stores/transition", () => {
+  return {
+    transition: defaultTransition,
+  };
+});
+
+describe("Button", () => {
+  beforeEach(() => {
+    transitionStore.transition = defaultTransition;
+  });
+
+  it("renders correct value", () => {
+    const props = {
+      value: "Button value",
+    };
+    const { getByText, unmount } = render(() => <Button {...props} />);
+
+    expect(getByText(props.value)).toBeInTheDocument();
     unmount();
   });
 
-  // test("it will add a new todo", async () => {
-  //   const { getByPlaceholderText, getByText, unmount } = render(() => (
-  //     <TodoList />
-  //   ));
-  //   const input = getByPlaceholderText("new todo here");
-  //   const button = getByText("Add Todo");
-  //   input.value = "test new todo";
-  //   fireEvent.click(button);
-  //   expect(input.value).toBe("");
-  //   expect(getByText(/test new todo/)).toBeInTheDocument();
-  //   unmount();
-  // });
+  it("appends className", () => {
+    const props = {
+      value: "Button value",
+      className: "button-class",
+    };
+    const { getByText, unmount } = render(() => <Button {...props} />);
 
-  // test("it will mark a todo as completed", async () => {
-  //   const { getByPlaceholderText, findByRole, getByText, unmount } = render(
-  //     () => <TodoList />
-  //   );
-  //   const input = getByPlaceholderText("new todo here");
-  //   const button = getByText("Add Todo");
-  //   input.value = "mark new todo as completed";
-  //   fireEvent.click(button);
-  //   const completed = await findByRole("checkbox");
-  //   expect(completed?.checked).toBe(false);
-  //   fireEvent.click(completed);
-  //   expect(completed?.checked).toBe(true);
-  //   const text = getByText("mark new todo as completed");
-  //   expect(text).toHaveStyle({ "text-decoration": "line-through" });
-  //   unmount();
-  // });
+    expect(getByText(props.value)).toHaveClass(props.className);
+    unmount();
+  });
+
+  it("renders default state", () => {
+    const props = {
+      value: "Button value",
+    };
+    const { getByText, unmount } = render(() => <Button {...props} />);
+
+    expect(getByText(props.value)).toHaveClass("Button");
+    expect(getByText(props.value)).not.toHaveClass("Button--active");
+    unmount();
+  });
+
+  it("renders active state", () => {
+    transitionStore.transition = {
+      keyboard: {
+        isTransitioning: true,
+        button: "0",
+      },
+    };
+
+    const props = {
+      value: "0",
+    };
+    const { getByText, unmount } = render(() => <Button {...props} />);
+
+    expect(getByText(props.value)).toHaveClass("Button--active");
+    unmount();
+  });
+
+  it("triggers handler", () => {
+    const props = {
+      value: "Button value",
+      handler: jest.fn(),
+    };
+    const { getByText, unmount } = render(() => <Button {...props} />);
+    const button = getByText(props.value);
+
+    fireEvent.click(button);
+    expect(props.handler).toBeCalledWith(props.value, expect.anything());
+    unmount();
+  });
 });

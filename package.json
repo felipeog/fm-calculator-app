@@ -26,17 +26,12 @@
     "chai-colors": "^1.0.1",
     "cypress": "^10.0.2",
     "jest": "^28.1.1",
+    "jest-css-modules-transform": "^4.4.2",
     "jest-environment-jsdom": "^28.1.1",
     "jsdom": "^19.0.0",
     "regenerator-runtime": "^0.13.9",
     "solid-jest": "^0.2.0",
     "solid-testing-library": "^0.3.0"
-  },
-  "jest": {
-    "preset": "solid-jest/preset/browser",
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest-setup.js"
-    ]
   },
   "browserslist": [
     "Chrome 74",
