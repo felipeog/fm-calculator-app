@@ -5,20 +5,33 @@
   "scripts": {
     "start": "solid-scripts start",
     "build": "solid-scripts build",
-    "test": "solid-scripts test",
+    "test": "jest",
     "cypress": "cypress",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },
   "dependencies": {
     "big.js": "^6.2.0",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "solid-js": "^1.4.4",
+    "solid-scripts": "0.0.61"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "babel-jest": "^28.1.1",
+    "babel-preset-jest": "^28.1.1",
+    "babel-preset-solid": "^1.4.4",
     "chai-colors": "^1.0.1",
     "cypress": "^10.0.2",
-    "solid-js": "^1.4.3",
-    "solid-scripts": "0.0.61"
+    "jest": "^28.1.1",
+    "jest-css-modules-transform": "^4.4.2",
+    "jest-environment-jsdom": "^28.1.1",
+    "jsdom": "^19.0.0",
+    "regenerator-runtime": "^0.13.9",
+    "solid-jest": "^0.2.0",
+    "solid-testing-library": "^0.3.0"
   },
   "browserslist": [
     "Chrome 74",
