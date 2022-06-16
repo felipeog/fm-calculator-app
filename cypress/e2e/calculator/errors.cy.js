@@ -24,7 +24,7 @@ describe("errors", () => {
     cy.checkDisplay("0");
 
     cy.pressButton("=").then(() => {
-      expect(alertStub).to.be.calledWith("[Error]: Division by zero");
+      expect(alertStub).to.be.calledWith("[Error] Division by zero");
     });
   });
 
@@ -55,7 +55,7 @@ describe("errors", () => {
     cy.checkDisplay("1");
 
     cy.pressButton("=").then(() => {
-      expect(alertStub).to.be.calledWith("[Error]: Out of bounds");
+      expect(alertStub).to.be.calledWith("[Error] Out of bounds");
     });
   });
 
@@ -87,7 +87,7 @@ describe("errors", () => {
     cy.checkDisplay("1");
 
     cy.pressButton("=").then(() => {
-      expect(alertStub).to.be.calledWith("[Error]: Out of bounds");
+      expect(alertStub).to.be.calledWith("[Error] Out of bounds");
     });
   });
 });
