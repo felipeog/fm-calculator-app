@@ -10,10 +10,6 @@ function Display() {
   }
 
   const getDisplayContent = () => {
-    if (calculator.displayContent.includes("[Error]")) {
-      return calculator.displayContent;
-    }
-
     if (calculator.displayContent.length) {
       if (calculator.displayContent.includes(".")) {
         const [left, right] = calculator.displayContent.split(".");
