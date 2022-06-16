@@ -37,7 +37,6 @@ Users should be able to:
 
 - [SolidJS](https://www.solidjs.com/) - Simple and performant reactivity for building user interfaces
 - [big.js](https://mikemcl.github.io/big.js/) - A small, fast, easy-to-use library for arbitrary-precision decimal arithmetic
-- [classnames](https://github.com/JedWatson/classnames) - A simple javascript utility for conditionally joining classNames together
 - [Cypress](https://www.cypress.io/) - Fast, easy and reliable testing for anything that runs in a browser
 
 ### Useful resources
