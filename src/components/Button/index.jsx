@@ -4,15 +4,23 @@ import { transition } from "../../stores/transition";
 import "./index.css";
 
 function Button(props) {
+  function handleButtonClick() {
+    return [props.handler, props.value];
+  }
+
+  function isButtonActive() {
+    return (
+      transition.keyboard.isTransitioning &&
+      transition.keyboard.button === props.value
+    );
+  }
+
   return (
     <button
       class={classNames("Button", props.className, {
-        "Button--active":
-          transition.keyboard.isTransitioning &&
-          props.value === transition.keyboard.button,
+        "Button--active": isButtonActive(),
       })}
-      // eslint-disable-next-line solid/reactivity
-      onClick={[props.handler, props.value]}
+      onClick={handleButtonClick()}
     >
       {props.value}
     </button>
