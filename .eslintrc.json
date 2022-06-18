@@ -11,12 +11,20 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["cypress", "jest-dom", "jest", "solid", "testing-library"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:cypress/recommended",
-    "plugin:jest-dom/recommended",
-    "plugin:jest/recommended",
-    "plugin:solid/recommended"
+  "plugins": ["solid", "testing-library", "jest-dom", "jest", "cypress"],
+  "extends": ["eslint:recommended", "plugin:solid/recommended"],
+  "overrides": [
+    {
+      "extends": ["plugin:jest-dom/recommended"],
+      "files": ["./**/*.test.jsx"]
+    },
+    {
+      "extends": ["plugin:jest/recommended"],
+      "files": ["./**/*.test.js", "./**/*.test.jsx"]
+    },
+    {
+      "extends": ["plugin:cypress/recommended"],
+      "files": ["./cypress/**/*"]
+    }
   ]
 }
