@@ -11,15 +11,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14
-
-      - name: Jest run
-        run: |
-          npm ci
-          npm run jest:ci
+      - name: Jest run and coverage
+        uses: ArtiomTr/jest-coverage-report-action@v2
 
   integration:
     needs: unit

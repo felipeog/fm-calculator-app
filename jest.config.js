@@ -4,4 +4,5 @@ module.exports = {
   transform: {
     ".+\\.(css)$": "jest-css-modules-transform",
   },
+  collectCoverageFrom: ["<rootDir>/src/**/*.{js,jsx}"],
 };

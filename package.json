@@ -6,7 +6,7 @@
     "start": "solid-scripts start",
     "build": "solid-scripts build",
     "jest:dev": "jest --onlyChanged --watch --verbose",
-    "jest:ci": "jest --bail --verbose",
+    "jest:ci": "jest --bail --verbose --collect-coverage",
     "cy:dev": "cypress open",
     "cy:ci": "cypress run"
   },
