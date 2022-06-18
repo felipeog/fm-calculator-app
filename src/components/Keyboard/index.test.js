@@ -74,10 +74,10 @@ describe("Keyboard", () => {
     calculatorStore.handleKeyboardInput = jest.fn();
     transitionStore.handleDisplayTransition = jest.fn();
 
-    const { queryByText, unmount } = render(() => <Keyboard />);
+    const { getByText, unmount } = render(() => <Keyboard />);
 
     buttonLabels.forEach((buttonLabel) => {
-      fireEvent.click(queryByText(buttonLabel));
+      fireEvent.click(getByText(buttonLabel));
 
       expect(calculatorStore.handleKeyboardInput).toHaveBeenCalledWith(
         buttonLabel
