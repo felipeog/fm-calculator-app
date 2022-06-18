@@ -1,6 +1,6 @@
 import { render } from "solid-testing-library";
 
-import { Display } from "./";
+import { Display } from ".";
 import calculatorStore from "../../stores/calculator";
 import transitionStore from "../../stores/transition";
 
