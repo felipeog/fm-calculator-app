@@ -28,7 +28,7 @@ describe("Display", () => {
   it("does not render when there is no content", () => {
     const { container, unmount } = render(() => <Display />);
 
-    expect(container.textContent).toBe("");
+    expect(container).toHaveTextContent("");
     unmount();
   });
 

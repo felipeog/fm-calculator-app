@@ -3,17 +3,18 @@ import classNames from "classnames";
 import { transition } from "../../stores/transition";
 import "./index.css";
 
-function Button({ className, value, handler }) {
+function Button(props) {
   return (
     <button
-      class={classNames("Button", className, {
+      class={classNames("Button", props.className, {
         "Button--active":
           transition.keyboard.isTransitioning &&
-          value === transition.keyboard.button,
+          props.value === transition.keyboard.button,
       })}
-      onClick={[handler, value]}
+      // eslint-disable-next-line solid/reactivity
+      onClick={[props.handler, props.value]}
     >
-      {value}
+      {props.value}
     </button>
   );
 }
