@@ -4,30 +4,25 @@ import { Display } from "./";
 import calculatorStore from "../../stores/calculator";
 import transitionStore from "../../stores/transition";
 
-const defaultCalculator = {
-  displayContent: "",
-};
-const defaultTransition = {
-  display: {
-    isTransitioning: false,
-  },
-};
-
 jest.mock("../../stores/calculator", () => {
-  return {
-    calculator: defaultCalculator,
-  };
+  return { ...jest.requireActual("../../stores/calculator") };
 });
 jest.mock("../../stores/transition", () => {
-  return {
-    transition: defaultTransition,
-  };
+  return { ...jest.requireActual("../../stores/transition") };
 });
 
 describe("Display", () => {
   beforeEach(() => {
-    calculatorStore.calculator = defaultCalculator;
-    transitionStore.transition = defaultTransition;
+    calculatorStore.calculator = {
+      ...calculatorStore.calculator,
+      displayContent: "",
+    };
+    transitionStore.transition = {
+      ...transitionStore.transition,
+      display: {
+        isTransitioning: false,
+      },
+    };
   });
 
   it("does not render when there is no content", () => {
@@ -39,9 +34,11 @@ describe("Display", () => {
 
   it("does not render when transitioning", () => {
     calculatorStore.calculator = {
+      ...calculatorStore.calculator,
       displayContent: "2",
     };
     transitionStore.transition = {
+      ...transitionStore.transition,
       display: {
         isTransitioning: true,
       },
@@ -55,6 +52,7 @@ describe("Display", () => {
 
   it("renders long integer", () => {
     calculatorStore.calculator = {
+      ...calculatorStore.calculator,
       displayContent: "999999999",
     };
 
@@ -66,6 +64,7 @@ describe("Display", () => {
 
   it("renders long decimal", () => {
     calculatorStore.calculator = {
+      ...calculatorStore.calculator,
       displayContent: "999999999.9999",
     };
 

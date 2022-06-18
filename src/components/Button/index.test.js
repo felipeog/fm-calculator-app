@@ -3,22 +3,19 @@ import { render, fireEvent } from "solid-testing-library";
 import { Button } from "./";
 import transitionStore from "../../stores/transition";
 
-const defaultTransition = {
-  keyboard: {
-    isTransitioning: false,
-    button: "",
-  },
-};
-
 jest.mock("../../stores/transition", () => {
-  return {
-    transition: defaultTransition,
-  };
+  return { ...jest.requireActual("../../stores/transition") };
 });
 
 describe("Button", () => {
   beforeEach(() => {
-    transitionStore.transition = defaultTransition;
+    transitionStore.transition = {
+      ...transitionStore.transition,
+      keyboard: {
+        isTransitioning: false,
+        button: "",
+      },
+    };
   });
 
   it("renders correct value", () => {
@@ -55,6 +52,7 @@ describe("Button", () => {
 
   it("renders active state", () => {
     transitionStore.transition = {
+      ...transitionStore.transition,
       keyboard: {
         isTransitioning: true,
         button: "0",
