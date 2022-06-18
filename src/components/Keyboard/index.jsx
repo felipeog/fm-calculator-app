@@ -8,10 +8,10 @@ import {
 } from "../../stores/transition";
 import "./index.css";
 
-function Buttons({ buttons, handler }) {
+function Buttons(props) {
   return (
-    <For each={buttons}>
-      {(button) => <Button handler={handler} {...button} />}
+    <For each={props.buttons}>
+      {(button) => <Button handler={props.handler} {...button} />}
     </For>
   );
 }
@@ -109,11 +109,11 @@ function Keyboard() {
 
   return (
     <section class="Keyboard">
-      <div className="Keyboard__top">
+      <div class="Keyboard__top">
         <Buttons buttons={topButtons} handler={handleButtonClick} />
       </div>
 
-      <div className="Keyboard__bottom">
+      <div class="Keyboard__bottom">
         <Buttons buttons={bottomButtons} handler={handleButtonClick} />
       </div>
     </section>

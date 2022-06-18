@@ -5,7 +5,7 @@ import { Keyboard } from "./components/Keyboard";
 function App() {
   return (
     <div class="App">
-      <main className="App-container">
+      <main class="App-container">
         <Header />
         <Display />
         <Keyboard />

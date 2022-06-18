@@ -1,6 +1,6 @@
 import { render, fireEvent } from "solid-testing-library";
 
-import { ThemeSelector } from "./";
+import { ThemeSelector } from ".";
 import themeStore from "../../stores/theme";
 
 jest.mock("../../stores/theme", () => {

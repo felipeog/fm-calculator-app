@@ -1,6 +1,6 @@
 import { render, fireEvent } from "solid-testing-library";
 
-import { Keyboard } from "./";
+import { Keyboard } from ".";
 import calculatorStore from "../../stores/calculator";
 import transitionStore from "../../stores/transition";
 

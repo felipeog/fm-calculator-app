@@ -1,6 +1,6 @@
 import { render } from "solid-testing-library";
 
-import { Header } from "./";
+import { Header } from ".";
 
 describe("Header", () => {
   it("renders app title", () => {

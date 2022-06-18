@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["solid", "testing-library", "jest-dom", "jest", "cypress"],
+  "extends": ["eslint:recommended", "plugin:solid/recommended"],
+  "overrides": [
+    {
+      "extends": ["plugin:jest-dom/recommended"],
+      "files": ["./**/*.test.jsx"]
+    },
+    {
+      "extends": ["plugin:jest/recommended"],
+      "files": ["./**/*.test.js", "./**/*.test.jsx"]
+    },
+    {
+      "extends": ["plugin:cypress/recommended"],
+      "files": ["./cypress/**/*"]
+    }
+  ]
+}

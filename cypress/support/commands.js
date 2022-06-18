@@ -9,6 +9,7 @@ Cypress.Commands.add("checkDisplay", (value) => {
 Cypress.Commands.add("checkDisplayEmpty", () => {
   // waits for the 100ms display transition
   // to ensure the display is empty
+  // FIXME:
   cy.wait(110);
 
   cy.get(".Display").should("have.text", "");

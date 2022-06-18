@@ -1,6 +1,6 @@
 import { render, fireEvent } from "solid-testing-library";
 
-import { Button } from "./";
+import { Button } from ".";
 import transitionStore from "../../stores/transition";
 
 jest.mock("../../stores/transition", () => {

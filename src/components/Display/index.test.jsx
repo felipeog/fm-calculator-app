@@ -1,6 +1,6 @@
 import { render } from "solid-testing-library";
 
-import { Display } from "./";
+import { Display } from ".";
 import calculatorStore from "../../stores/calculator";
 import transitionStore from "../../stores/transition";
 
@@ -28,7 +28,7 @@ describe("Display", () => {
   it("does not render when there is no content", () => {
     const { container, unmount } = render(() => <Display />);
 
-    expect(container.textContent).toBe("");
+    expect(container).toHaveTextContent("");
     unmount();
   });
 
