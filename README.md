@@ -1,6 +1,6 @@
-# [Frontend Mentor - Calculator app solution](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29)
+# [Frontend Mentor - Calculator app solution](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29) <!-- omit in toc -->
 
-## Table of contents
+## Table of contents <!-- omit in toc -->
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
@@ -35,13 +35,14 @@ Users should be able to:
 
 ### Built with
 
-- [SolidJS](https://www.solidjs.com/) - Simple and performant reactivity for building user interfaces
-- [big.js](https://mikemcl.github.io/big.js/) - A small, fast, easy-to-use library for arbitrary-precision decimal arithmetic
-- [Cypress](https://www.cypress.io/) - Fast, easy and reliable testing for anything that runs in a browser
+- [SolidJS](https://www.solidjs.com) - Simple and performant reactivity for building user interfaces
+- [big.js](https://mikemcl.github.io/big.js) - A small, fast, easy-to-use library for arbitrary-precision decimal arithmetic
+- [Jest](https://jestjs.io) - Jest is a delightful JavaScript Testing Framework with a focus on simplicity
+- [Cypress](https://www.cypress.io) - Fast, easy and reliable testing for anything that runs in a browser
 
 ### Useful resources
 
-- [Mozilla's Calculator Test Suite](https://mozilla.github.io/calculator/test/)
+- [Mozilla's Calculator Test Suite](https://mozilla.github.io/calculator/test)
 - [Sebastian Marucci's Overcoming Javascript numeric precision issues](https://www.avioconsulting.com/blog/overcoming-javascript-numeric-precision-issues)
 
 ## Functionality
