@@ -5,17 +5,10 @@ import calculatorStore from "../../stores/calculator";
 import transitionStore from "../../stores/transition";
 
 jest.mock("../../stores/calculator", () => {
-  return {
-    ...jest.requireActual("../../stores/calculator"),
-    handleKeyboardInput: () => {},
-  };
+  return { ...jest.requireActual("../../stores/calculator") };
 });
 jest.mock("../../stores/transition", () => {
-  return {
-    ...jest.requireActual("../../stores/transition"),
-    handleDisplayTransition: () => {},
-    handleKeyboardTransition: () => {},
-  };
+  return { ...jest.requireActual("../../stores/transition") };
 });
 
 const buttonLabels = [
